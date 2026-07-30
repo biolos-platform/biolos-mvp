@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIOLOS | دهم - فصل 1 گفتار 2: گسترۀ حیات</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #0b0f19; color: #f1f5f9; font-family: 'Vazirmatn', sans-serif; min-height: 100vh; padding: 20px; font-size: 18px; line-height: 1.8; }
+        .container { max-width: 1200px; margin: 0 auto; background: #1e293b; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .header { background: linear-gradient(90deg, #0f172a, #1e293b); padding: 25px 30px; border-bottom: 2px solid #10b981; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .header h1 { font-size: 26px; color: #10b981; font-weight: 800; }
+        .header a { color: #cbd5e1; text-decoration: none; font-weight: 700; font-size: 16px; display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.05); padding: 8px 16px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); }
+        .nav-tabs { display: flex; gap: 10px; padding: 15px 30px; background: #0f172a; overflow-x: auto; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .tab-btn { background: #1e293b; color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 10px; cursor: pointer; font-family: inherit; font-size: 16px; font-weight: 700; whitespace-nowrap; transition: all 0.2s; }
+        .tab-btn.active, .tab-btn:hover { background: #059669; color: #fff; border-color: #10b981; }
+        .content { padding: 35px; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .section-title { font-size: 24px; color: #10b981; font-weight: 800; margin-bottom: 20px; border-right: 5px solid #10b981; padding-right: 15px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 25px; }
+        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+        .card { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 15px; padding: 25px; margin-bottom: 20px; }
+        .trap-card { background: rgba(244, 63, 94, 0.1); border: 1px solid #f43f5e; border-radius: 15px; padding: 20px; margin-top: 15px; }
+        .trap-title { color: #fb7185; font-weight: 800; font-size: 18px; display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .img-container { width: 100%; border-radius: 12px; overflow: hidden; margin: 15px 0; border: 1px solid rgba(255,255,255,0.1); background: #0f172a; text-align: center; }
+        .img-container img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .img-caption { padding: 10px; background: rgba(0,0,0,0.4); font-size: 15px; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.05); }
+        .accordion { background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+        .accordion-header { padding: 18px 20px; cursor: pointer; font-weight: 700; font-size: 19px; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); }
+        .accordion-body { padding: 20px; display: none; border-top: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.2); }
+        .highlight { color: #34d399; font-weight: 700; }
+        .badge-level { display: inline-block; background: #0284c7; color: #fff; font-size: 14px; padding: 2px 10px; border-radius: 6px; font-weight: 800; margin-left: 8px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>BIOLOS | گفتار دوم: گسترۀ حیات</h1>
+        <a href="index.html"><i class="fa-solid fa-house"></i> بازگشت به پورتال اصلی</a>
+    </div>
+
+    <div class="nav-tabs">
+        <button class="tab-btn active" onclick="openTab('sec1')">۱. سطوح خرد (یاخته تا فرد)</button>
+        <button class="tab-btn" onclick="openTab('sec2')">۲. سطوح کلان (جمعیت تا زیست‌کره)</button>
+        <button class="tab-btn" onclick="openTab('sec3')">۳. استثنائات تک‌سلولی‌ها</button>
+        <button class="tab-btn" onclick="openTab('sec4')">۴. مولکول‌های زیستی</button>
+        <button class="tab-btn" onclick="openTab('sec5')">۵. آزمون و دام‌های کنکور</button>
+    </div>
+
+    <div class="content">
+        <!-- بخش ۱ -->
+        <div id="sec1" class="tab-content active">
+            <div class="section-title">۱. سطوح سازمان‌یابی خرد (از یاخته تا فرد)</div>
+            <p style="margin-bottom:20px;">حیات ساختاری سلسله‌مراتبی و تودرتو (مانند عروسک‌های ماتریوشکا) دارد که از ۵ سطح خرد زیر تشکیل می‌شود:</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <p><span class="badge-level">سطح ۱</span> <strong>یاخته (سلول):</strong> پایین‌ترین سطح سازمان‌یابی حیات. همۀ جانداران از یاخته تشکیل شده‌اند.</p>
+                    <p style="margin-top:10px;"><span class="badge-level">سطح ۲</span> <strong>بافت:</strong> مجموعه‌ای از یاخته‌های مشابه و هماهنگ که کار خاصی انجام می‌دهند.</p>
+                    <p style="margin-top:10px;"><span class="badge-level">سطح ۳</span> <strong>اندام:</strong> از چند بافت مختلف تشکیل می‌شود (مثل استخوان بازو).</p>
+                    <p style="margin-top:10px;"><span class="badge-level">سطح ۴</span> <strong>دستگاه:</strong> مجموعه اندام‌هایی که با هم یک هدف را دنبال می‌کنند (مثل دستگاه حرکتی).</p>
+                    <p style="margin-top:10px;"><span class="badge-level">سطح ۵</span> <strong>فرد (جاندار):</strong> یک موجود زنده مستقل مانند یک گوزن.</p>
+                </div>
+
+                <div class="card">
+                    <div class="img-container">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/17266606398654247050_0" alt="سلسله مراتب سازمان‌یابی حیات">
+                        <div class="img-caption">شکل ۱: نمودار مارپیچ سازمان‌یابی حیات از یاخته تا زیست‌کره</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- بخش ۲ -->
+        <div id="sec2" class="tab-content">
+            <div class="section-title">۲. سطوح سازمان‌یابی کلان (از جمعیت تا زیست‌کره)</div>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3><i class="fa-solid fa-users" style="color:#10b981;"></i> سطح ۶: جمعیت</h3>
+                    <p>افراد <span class="highlight">یک گونه</span> که در <span class="highlight">زمان خاص</span> و در <span class="highlight">مکان خاصی</span> زندگی می‌کنند.</p>
+                    
+                    <div class="trap-card">
+                        <div class="trap-title"><i class="fa-solid fa-triangle-exclamation"></i> قیود طلایی جمعیت</div>
+                        <p>اگر دو جاندار هم‌گونه در دو مکان مختلف (مثلا گوزن زرد در ایران و گوزن در اروپا) باشند، یک جمعیت محسوب <strong>نمی‌شوند</strong>!</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fa-solid fa-tree" style="color:#10b981;"></i> سطح ۷: اجتماع زیستی</h3>
+                    <p>جمعیت‌های گوناگونی که در یک مکان تعامل دارند. <span class="highlight">فقط شامل عوامل زنده</span> است (گوزن‌ها + پرندگان + درختان).</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="img-container">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/12584921977216312351_0" alt="تفاوت جمعیت، اجتماع و بوم‌سازگان">
+                    <div class="img-caption">شکل ۲: دیاگرام مقایسه‌ای جمعیت (یک گونه) vs اجتماع (چند گونه) vs بوم‌سازگان (زنده + غیرزنده)</div>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3><span class="badge-level">سطح ۸</span> بوم‌سازگان (اکوسیستم)</h3>
+                    <p>اولین سطحی که <span class="highlight">عوامل غیرزنده</span> (آب، خاک، دما، خورشید) وارد می‌شوند. بوم‌سازگان = اجتماع (زنده) + محیط (غیرزنده).</p>
+                </div>
+
+                <div class="card">
+                    <h3><span class="badge-level">سطح ۹ و ۱۰</span> زیست‌بوم و زیست‌کره</h3>
+                    <p><strong>زیست‌بوم (بیوم):</strong> چند بوم‌سازگان با <span class="highlight">اقلیم (آب‌وهوا)</span> و جانداران مشابه.</p>
+                    <p style="margin-top:8px;"><strong>زیست‌کره:</strong> شامل همۀ زیست‌بوم‌های زمین (بالاترین سطح سازمان‌یابی).</p>
+                </div>
+            </div>
+
+            <div class="img-container">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/10726342856238356270_0" alt="نقشه پراکندگی زیست‌بوم‌های زمین">
+                <div class="img-caption">شکل ۳: نقشه پراکندگی زیست‌بوم‌های کره زمین بر اساس اقلیم</div>
+            </div>
+        </div>
+
+        <!-- بخش ۳ -->
+        <div id="sec3" class="tab-content">
+            <div class="section-title">۳. استثنای بزرگ کنکوری: جانداران تک‌یاخته‌ای</div>
+            <div class="card">
+                <h3><i class="fa-solid fa-virus" style="color:#f43f5e;"></i> تک‌سلولی‌ها چه سطوحی را ندارند؟</h3>
+                <p>همه جانداران لزوماً تمام ۱۰ سطح سازمان‌یابی را ندارند! جانداران تک‌یاخته‌ای (مانند باکتری‌ها، آمیب، پارامسی و مخمر نان) <span class="highlight">فاقد سطوح بافت، اندام و دستگاه</span> هستند.</p>
+                
+                <div class="trap-card">
+                    <div class="trap-title"><i class="fa-solid fa-skull"></i> دام مهم طراحان</div>
+                    <p>طراح می‌گوید: "در همۀ جانداران، اندام‌ها از چند بافت تشکیل شده‌اند." این جمله <strong>غلط</strong> است، چون تک‌سلولی‌ها اصلاً اندام و بافت ندارند!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- بخش ۴ -->
+        <div id="sec4" class="tab-content">
+            <div class="section-title">۴. مولکول‌های زیستی</div>
+            <div class="card">
+                <p>در جانداران مولکول‌هایی وجود دارند که در دنیای غیرزنده دیده نمی‌شوند. چهار گروه اصلی مولکول‌های زیستی عبارتند از:</p>
+                <ul style="margin-right:25px; margin-top:10px;">
+                    <li><span class="highlight">کربوهیدرات‌ها</span> (قندها)</li>
+                    <li><span class="highlight">لیپیدها</span> (چربی‌ها)</li>
+                    <li><span class="highlight">پروتئین‌ها</span></li>
+                    <li><span class="highlight">نوکلئیک اسیدها</span> (DNA و RNA)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- بخش ۵ -->
+        <div id="sec5" class="tab-content">
+            <div class="section-title">۵. خودآزمایی و تحلیل دام‌های کنکوری</div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAcc(this)">
+                    <span>سوال ۱: کدام مورد یک «جمعیت» زیستی محسوب می‌شود؟</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-body">
+                    <p><strong>گزینه‌ها:</strong></p>
+                    <p>۱) همه درختان جنگل گلستان</p>
+                    <p>۲) گربه های سفید سراسر جهان</p>
+                    <p>۳) درختان بلوط جنگل گلستان در سال جاری</p>
+                    <p>۴) ماهی‌های دریاچه ارومیه و خزر</p>
+                    <p style="margin-top:10px;"><strong>پاسخ صحیح: گزینه ۳</strong></p>
+                    <p><strong>علت:</strong> گزینه ۳ تمام ۳ شرط جمعیت یعنی: <span class="highlight">یک گونه (درخت بلوط) + مکان مشخص (جنگل گلستان) + زمان مشخص (سال جاری)</span> را دارد. گزینه ۱ شامل چند گونه درخت است (اجتماع). گزینه ۲ و ۴ شرط مکان مشخص را ندارند.</p>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAcc(this)">
+                    <span>سوال ۲: اولین سطحی که عوامل غیرزنده محیطی وارد آن می‌شوند کدام است؟</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-body">
+                    <p><strong>پاسخ صحیح: بوم‌سازگان (اکوسیستم).</strong></p>
+                    <p><strong>تحلیل:</strong> سطوح یاخته تا اجتماع فقط شامل عوامل زنده هستند. بوم‌سازگان اولین سطحی است که تعامل عوامل زنده و غیرزنده را بررسی می‌کند.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function openTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+
+    function toggleAcc(header) {
+        const body = header.nextElementSibling;
+        const icon = header.querySelector('.fa-chevron-down, .fa-chevron-up');
+        if (body.style.display === "block") {
+            body.style.display = "none";
+            if(icon) icon.className = "fa-solid fa-chevron-down";
+        } else {
+            body.style.display = "block";
+            if(icon) icon.className = "fa-solid fa-chevron-up";
+        }
+    }
+</script>
+</body>
+</html>

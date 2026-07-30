@@ -29,13 +29,25 @@
         .trap-card { background: rgba(244, 63, 94, 0.1); border: 1px solid #f43f5e; border-radius: 15px; padding: 20px; margin-top: 15px; }
         .trap-title { color: #fb7185; font-weight: 800; font-size: 18px; display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
         .img-container { width: 100%; border-radius: 12px; overflow: hidden; margin: 15px 0; border: 1px solid rgba(255,255,255,0.1); background: #0f172a; text-align: center; }
-        .img-container img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .img-container img { max-width: 100%; height: auto; display: block; margin: 0 auto; min-height: 200px; background: #1e293b; }
         .img-caption { padding: 10px; background: rgba(0,0,0,0.4); font-size: 15px; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.05); }
         .accordion { background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
         .accordion-header { padding: 18px 20px; cursor: pointer; font-weight: 700; font-size: 19px; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); }
         .accordion-body { padding: 20px; display: none; border-top: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.2); }
         .highlight { color: #38bdf8; font-weight: 700; }
         .tag { display: inline-block; background: #0284c7; color: #fff; font-size: 14px; padding: 3px 10px; border-radius: 6px; font-weight: 700; margin-left: 8px; }
+        
+        /* استایل اختصاصی آزمون تعاملی */
+        .quiz-card { background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 16px; padding: 25px; margin-bottom: 25px; }
+        .quiz-question { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 15px; }
+        .quiz-options { display: flex; flex-direction: column; gap: 12px; }
+        .quiz-opt { background: #1e293b; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 14px 18px; cursor: pointer; font-size: 17px; font-weight: 600; transition: all 0.2s; }
+        .quiz-opt:hover { background: #334155; border-color: #38bdf8; }
+        .quiz-opt.correct { background: rgba(16, 185, 129, 0.2) !important; border-color: #10b981 !important; color: #34d399 !important; }
+        .quiz-opt.wrong { background: rgba(244, 63, 94, 0.2) !important; border-color: #f43f5e !important; color: #fb7185 !important; }
+        .quiz-feedback { margin-top: 15px; padding: 15px; border-radius: 10px; display: none; font-size: 16px; font-weight: 700; line-height: 1.6; }
+        .quiz-feedback.show-correct { display: block; background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; color: #34d399; }
+        .quiz-feedback.show-wrong { display: block; background: rgba(244, 63, 94, 0.15); border: 1px solid #f43f5e; color: #fb7185; }
     </style>
 </head>
 <body>
@@ -51,7 +63,7 @@
         <button class="tab-btn" onclick="openTab('sec2')">۲. تعریف و محدوده علم</button>
         <button class="tab-btn" onclick="openTab('sec3')">۳. زیست‌شناسی نوین</button>
         <button class="tab-btn" onclick="openTab('sec4')">۴. کاربردها و خدمات</button>
-        <button class="tab-btn" onclick="openTab('sec5')">۵. آزمون و دام‌ها</button>
+        <button class="tab-btn" onclick="openTab('sec5')">۵. آزمون تعاملی سنجش</button>
     </div>
 
     <div class="content">
@@ -70,8 +82,8 @@
                 </div>
                 <div class="card">
                     <div class="img-container">
-                        <img src="http://googleusercontent.com/image_collection/image_retrieval/15759178266325512074_0" alt="مسیر مهاجرت پروانه مونارک">
-                        <div class="img-caption">شکل ۱: نقشه شماتیک مسیر مهاجرت پروانه‌های مونارک از مکزیک تا کانادا</div>
+                        <img src="https://images.unsplash.com/photo-1557008075-7f2c5efa4cfd?w=800" alt="پروانه مونارک">
+                        <div class="img-caption">شکل ۱: پروانه مونارک و مسیر مهاجرت چرخه‌ای از مکزیک تا کانادا</div>
                     </div>
                 </div>
             </div>
@@ -88,8 +100,8 @@
             <div class="grid-2">
                 <div class="card">
                     <div class="img-container">
-                        <img src="http://googleusercontent.com/image_collection/image_retrieval/5602809164687420112_0" alt="اندازه‌گیری کمّی در علم">
-                        <div class="img-caption">شکل ۲: ابزارهای کمّی اندازه‌گیری پدیده‌های زیستی (محدوده علم تجربی)</div>
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800" alt="اندازه‌گیری کمّی در علم">
+                        <div class="img-caption">شکل ۲: ابزارهای آزمایشگاهی کمّی برای سنجش پدیده‌های زیستی</div>
                     </div>
                 </div>
                 <div class="card">
@@ -97,7 +109,7 @@
                     <p>پژوهشگران علوم تجربی <span class="highlight">نمی‌توانند</span> درباره زشتی و زیبایی، خوبی و بدی، ارزش‌های هنری، ادبی و اخلاقی نظر بدهند.</p>
                     <div class="trap-card">
                         <div class="trap-title"><i class="fa-solid fa-skull"></i> دام طراح کنکور</div>
-                        <p>علم تجربی از حل برخی مسائل کلان بشری و پاسخ به پرسش‌های ارزشی ناتوان است و نمی‌تواند جایگزین اخلاق یا هنر شود.</p>
+                        <p>علم تجربی از پاسخ به پرسش‌های ارزشی ناتوان است و نمی‌تواند جایگزین اخلاق، هنر یا دین شود.</p>
                     </div>
                 </div>
             </div>
@@ -113,29 +125,19 @@
                 </div>
                 <div class="accordion-body">
                     <p>پیکر جانداران یک «سامانه» است. ویژگی‌های سامانه را نمی‌توان فقط با مطالعه اجزای سازنده آن به تنهایی توضیح داد. <span class="highlight">کل سامانه چیزی بیشتر از مجموع اجزای آن است.</span> ارتباط بین اجزا نیز مانند خود اجزا مؤثر است.</p>
-                    <div class="img-container" style="max-width:500px;">
-                        <img src="http://googleusercontent.com/image_collection/image_retrieval/3475816174061449669_0" alt="دیدگاه کل‌نگری">
-                        <div class="img-caption">شکل ۳: نماد نگرش کل‌نگری (فیل و ضرب‌المثل درک جزئیات در برابر کل سامانه)</div>
-                    </div>
                 </div>
             </div>
 
             <div class="accordion">
                 <div class="accordion-header" onclick="toggleAcc(this)">
-                    <span>۲. بین‌رشته‌ای بودن و فناوری‌های نوین</span>
+                    <span>۲. بین‌رشته‌ای بودن و مهندسی ژنتیک</span>
                     <i class="fa-solid fa-chevron-down"></i>
                 </div>
                 <div class="accordion-body">
                     <p>استفاده از علوم رایانه، آمار و مهندسی برای تحلیل اطلاعات زیستی. همچنین مهندسی ژنتیک و تولید جانداران <span class="highlight">تراژن</span> (جانداری که ژن گونه‌ای دیگر را دریافت کرده است).</p>
-                    <div class="grid-2" style="margin-top:15px;">
-                        <div class="img-container">
-                            <img src="http://googleusercontent.com/image_collection/image_retrieval/7394245034853026450_0" alt="پیشرفت فناوری اطلاعات">
-                            <div class="img-caption">شکل ۴: سیر پیشرفت فناوری اطلاعات در ذخیره داده‌های زیستی</div>
-                        </div>
-                        <div class="img-container">
-                            <img src="http://googleusercontent.com/image_collection/image_retrieval/5200695949994986689_0" alt="بز تراژن تولیدکننده تار عنکبوت">
-                            <div class="img-caption">شکل ۵: مهندسی ژنتیک و ایجاد جانداران تراژن (بز تولیدکننده تار عنکبوت)</div>
-                        </div>
+                    <div class="img-container" style="max-width:600px; margin-top:15px;">
+                        <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800" alt="مهندسی ژنتیک و رشته DNA">
+                        <div class="img-caption">شکل ۳: ساختار DNA و دستکاری ژنتیکی برای تولید جانداران تراژن</div>
                     </div>
                 </div>
             </div>
@@ -147,39 +149,15 @@
             <div class="grid-2">
                 <div class="card">
                     <h3><i class="fa-solid fa-wheat-awn" style="color:#10b981;"></i> ۱. تأمین غذای کافی و سالم</h3>
-                    <p>غذای انسان مستقیماً یا غیرمستقیم از گیاهان تامین می‌شود. گیاهان در ارتباط با عوامل غیرزنده و زنده (باکتری‌ها و قارچ‌های مفید) رشد می‌کنند.</p>
-                    <div class="img-container">
-                        <img src="http://googleusercontent.com/image_collection/image_retrieval/6504079581918771398_0" alt="همزیستی باکتری و ریشه گیاه">
-                        <div class="img-caption">شکل ۶: همزیستی باکتری‌های مفید با ریشه گیاهان برای تامین غذا</div>
-                    </div>
+                    <p>غذای انسان مستقیماً یا غیرمستقیم از گیاهان تامین می‌شود. گیاهان در ارتباط با باکتری‌ها و قارچ‌های مفید خاک رشد بهتری دارند.</p>
                 </div>
 
                 <div class="card">
-                    <h3><i class="fa-solid fa-leaf" style="color:#10b981;"></i> ۲. حفاظت از بوم‌سازگان‌ها</h3>
-                    <p>خدمات بوم‌سازگان به میزان <span class="highlight">تولیدکنندگان</span> آن بستگی دارد. (مثال: احیای دریاچه ارومیه و جلوگیری از جنگل‌زدایی).</p>
+                    <h3><i class="fa-solid fa-gas-pump" style="color:#10b981;"></i> ۲. انرژی‌های تجدیدپذیر</h3>
+                    <p>سوخت زیستی (مثل گازوئیل زیستی از دانه‌های روغنی) از <span class="highlight">جانداران امروزی</span> به دست می‌آید (برخلاف سوخت فسیلی قدیمی).</p>
                     <div class="img-container">
-                        <img src="http://googleusercontent.com/image_collection/image_retrieval/2605754184634941055_0" alt="شبکه غذایی بوم‌سازگان">
-                        <div class="img-caption">شکل ۷: شبکه تعاملی بوم‌سازگان و نقش محوری تولیدکنندگان</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid-2">
-                <div class="card">
-                    <h3><i class="fa-solid fa-gas-pump" style="color:#10b981;"></i> ۳. انرژی‌های تجدیدپذیر</h3>
-                    <p>سوخت زیستی (مثل گازوئیل زیستی از دانه‌های روغنی) از <span class="highlight">جانداران امروزی</span> به دست می‌آید (برخلاف سوخت فسیلی که منشا از جانداران قدیمی دارد).</p>
-                    <div class="img-container">
-                        <img src="http://googleusercontent.com/image_collection/image_retrieval/14961604276393333224_0" alt="چرخه سوخت زیستی">
-                        <div class="img-caption">شکل ۸: چرخه تولید سوخت زیستی پاک از گیاهان امروزی</div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3><i class="fa-solid fa-user-doctor" style="color:#10b981;"></i> ۴. سلامت و پزشکی شخصی</h3>
-                    <p>در پزشکی شخصی، با بررسی اطلاعات دنا (DNA) هر فرد، روش درمانی اختصاصی برای او طراحی می‌شود.</p>
-                    <div class="img-container">
-                        <img src="http://googleusercontent.com/image_collection/image_retrieval/12984404916818406203_0" alt="پزشکی شخصی و بررسی سلولی">
-                        <div class="img-caption">شکل ۹: تحلیل اختصاصی DNA در پزشکی شخصی برای درمان بیماری‌ها</div>
+                        <img src="https://images.unsplash.com/photo-1473081556163-2a17de81fc97?w=800" alt="گیاهان و سوخت زیستی">
+                        <div class="img-caption">شکل ۴: تولید سوخت زیستی پاک از دانه‌های روغنی گیاهان امروزی</div>
                     </div>
                 </div>
             </div>
@@ -187,27 +165,28 @@
 
         <!-- بخش ۵ -->
         <div id="sec5" class="tab-content">
-            <div class="section-title">۵. خودآزمایی و سنجش مفاهیم</div>
+            <div class="section-title">۵. آزمون آنلاین تعاملی گفتار اول</div>
             
-            <div class="accordion">
-                <div class="accordion-header" onclick="toggleAcc(this)">
-                    <span>سوال ۱: میزان خدمات بوم‌سازگان مستقیماً به کدام گروه بستگی دارد؟</span>
-                    <i class="fa-solid fa-chevron-down"></i>
+            <div class="quiz-card">
+                <div class="quiz-question">سوال ۱: تشخیص جهت و موقعیت خورشید در جریان مهاجرت پروانه مونارک منحصراً توسط کدام بخش انجام می‌شود؟</div>
+                <div class="quiz-options">
+                    <div class="quiz-opt" onclick="checkAnswer(this, 1, false)">۱) گیرنده‌های نوری چشم مرکب پروانه</div>
+                    <div class="quiz-opt" onclick="checkAnswer(this, 1, true)">۲) یاخته‌های عصبی (نورون‌های مغز)</div>
+                    <div class="quiz-opt" onclick="checkAnswer(this, 1, false)">۳) بال‌ها و حسگرهای محیطی بدن</div>
+                    <div class="quiz-opt" onclick="checkAnswer(this, 1, false)">۴) گیرنده‌های شیمیایی شاخک‌ها</div>
                 </div>
-                <div class="accordion-body">
-                    <p><strong>پاسخ صحیح:</strong> تولیدکنندگان (گیاهان و جانداران فتوسنتزکننده).</p>
-                    <p><strong>تحلیل:</strong> طبق متن صریح کتاب درسی، پایه و اساس خدمات هر بوم‌سازگان وابسته به میزان تولیدکنندگان آن است.</p>
-                </div>
+                <div id="feedback-1" class="quiz-feedback"></div>
             </div>
 
-            <div class="accordion">
-                <div class="accordion-header" onclick="toggleAcc(this)">
-                    <span>سوال ۲: تفاوت اصلی سوخت فسیلی و سوخت زیستی در چیست؟</span>
-                    <i class="fa-solid fa-chevron-down"></i>
+            <div class="quiz-card">
+                <div class="quiz-question">سوال ۲: تفاوت اصلی سوخت‌های زیستی با سوخت‌های فسیلی در چیست؟</div>
+                <div class="quiz-options">
+                    <div class="quiz-opt" onclick="checkAnswer(this, 2, false)">۱) سوخت زیستی هیچ‌گونه گاز گلخانه‌ای تولید نمی‌کند.</div>
+                    <div class="quiz-opt" onclick="checkAnswer(this, 2, true)">۲) سوخت زیستی از جانداران امروزی به دست می‌آید.</div>
+                    <div class="quiz-opt" onclick="checkAnswer(this, 2, false)">۳) سوخت فسیلی فقط از گیاهان قدیمی تشکیل شده است.</div>
+                    <div class="quiz-opt" onclick="checkAnswer(this, 2, false)">۴) سوخت زیستی تجدیدناپذیر و محدود است.</div>
                 </div>
-                <div class="accordion-body">
-                    <p><strong>پاسخ صحیح:</strong> سوخت فسیلی حاصل تجزیه پیکر جانداران باستانی/قدیمی در میلیون‌ها سال پیش است، اما سوخت زیستی از جانداران امروزی (مثل دانه‌های روغنی آفتابگردان و سویا) به دست می‌آید.</p>
-                </div>
+                <div id="feedback-2" class="quiz-feedback"></div>
             </div>
         </div>
 
@@ -231,6 +210,24 @@
         } else {
             body.style.display = "block";
             if(icon) icon.className = "fa-solid fa-chevron-up";
+        }
+    }
+
+    function checkAnswer(optElement, qNum, isCorrect) {
+        const parentGrid = optElement.parentElement;
+        const allOpts = parentGrid.querySelectorAll('.quiz-opt');
+        const feedback = document.getElementById(`feedback-${qNum}`);
+        
+        allOpts.forEach(opt => opt.className = 'quiz-opt');
+        
+        if (isCorrect) {
+            optElement.classList.add('correct');
+            feedback.className = 'quiz-feedback show-correct';
+            feedback.innerHTML = '<i class="fa-solid fa-circle-check"></i> آفرین! پاسخ صحیح است. (طبق متن کتاب درسی، این ویژگی کاملاً درست است).';
+        } else {
+            optElement.classList.add('wrong');
+            feedback.className = 'quiz-feedback show-wrong';
+            feedback.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> پاسخ نادرست است! دوباره متن گفتار را مرور کن و مجدداً تلاش کن.';
         }
     }
 </script>

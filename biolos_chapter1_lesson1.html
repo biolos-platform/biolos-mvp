@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIOLOS | دهم - فصل 1 گفتار 1: زیست‌شناسی چیست؟ (متن کامل و جامع)</title>
+    <title>BIOLOS | دهم - فصل 1 گفتار 1: زیست‌شناسی چیست؟ (نسخه کامل عمارلو ۱۴۰۴)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -13,7 +13,6 @@
         :root {
             --bg-dark: #0b0f19;
             --bg-card: #1e293b;
-            --bg-sidebar: #0f172a;
             --accent-blue: #38bdf8;
             --accent-green: #10b981;
             --accent-red: #f43f5e;
@@ -26,7 +25,7 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Vazirmatn', sans-serif; min-height: 100vh; padding: 20px; font-size: 17px; line-height: 1.8; }
-        .container { max-width: 1200px; margin: 0 auto; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--border-color); overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .container { max-width: 1240px; margin: 0 auto; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--border-color); overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
         
         .header { background: linear-gradient(90deg, #0f172a, #1e293b); padding: 25px 30px; border-bottom: 2px solid var(--accent-blue); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
         .header h1 { font-size: 24px; color: var(--accent-blue); font-weight: 800; }
@@ -42,9 +41,9 @@
         
         .section-title { font-size: 22px; color: var(--accent-blue); font-weight: 800; margin-bottom: 20px; border-right: 5px solid var(--accent-blue); padding-right: 15px; }
         
-        /* کادربندی‌های اختصاصی محتوا */
-        .book-card { background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 15px; padding: 22px; margin-bottom: 20px; position: relative; }
-        .book-badge { display: inline-block; background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); font-size: 13px; font-weight: 800; padding: 3px 10px; border-radius: 6px; margin-bottom: 12px; border: 1px solid rgba(56, 189, 248, 0.3); }
+        /* کادربندی‌های اختصاصی عمارلو */
+        .note-card { background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 15px; padding: 22px; margin-bottom: 20px; }
+        .note-badge { display: inline-block; background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); font-size: 13px; font-weight: 800; padding: 3px 10px; border-radius: 6px; margin-bottom: 12px; border: 1px solid rgba(56, 189, 248, 0.3); }
         
         .gold-card { background: rgba(251, 191, 36, 0.08); border: 1px solid var(--accent-gold); border-radius: 15px; padding: 20px; margin-bottom: 20px; }
         .gold-title { color: var(--accent-gold); font-weight: 800; font-size: 17px; display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
@@ -55,93 +54,93 @@
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
         @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
         
-        ul { margin-right: 20px; margin-top: 8px; }
-        li { margin-bottom: 6px; }
+        ul, ol { margin-right: 25px; margin-top: 8px; }
+        li { margin-bottom: 8px; }
 
-        /* استایل آزمون */
-        .quiz-card { background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 16px; padding: 25px; margin-bottom: 25px; }
-        .quiz-question { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 15px; }
-        .quiz-options { display: flex; flex-direction: column; gap: 10px; }
-        .quiz-opt { background: #1e293b; border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 16px; cursor: pointer; font-size: 16px; font-weight: 600; transition: all 0.2s; }
-        .quiz-opt:hover { background: #334155; border-color: var(--accent-blue); }
-        .quiz-opt.correct { background: rgba(16, 185, 129, 0.2) !important; border-color: var(--accent-green) !important; color: #34d399 !important; }
-        .quiz-opt.wrong { background: rgba(244, 63, 94, 0.2) !important; border-color: var(--accent-red) !important; color: #fb7185 !important; }
-        .quiz-feedback { margin-top: 15px; padding: 15px; border-radius: 10px; display: none; font-size: 15px; font-weight: 700; line-height: 1.6; }
-        .quiz-feedback.show-correct { display: block; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-green); color: #34d399; }
-        .quiz-feedback.show-wrong { display: block; background: rgba(244, 63, 94, 0.15); border: 1px solid var(--accent-red); color: #fb7185; }
+        /* استایل تست‌های کنکوری عمارلو */
+        .test-card { background: rgba(15, 23, 42, 0.95); border: 1px solid var(--accent-purple); border-radius: 16px; padding: 25px; margin-bottom: 25px; }
+        .test-title { font-size: 17px; font-weight: 800; color: var(--accent-purple); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .test-options { display: flex; flex-direction: column; gap: 10px; }
+        .test-opt { background: #1e293b; border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 16px; cursor: pointer; font-size: 16px; font-weight: 600; transition: all 0.2s; }
+        .test-opt:hover { background: #334155; border-color: var(--accent-purple); }
+        .test-opt.correct { background: rgba(16, 185, 129, 0.2) !important; border-color: var(--accent-green) !important; color: #34d399 !important; }
+        .test-opt.wrong { background: rgba(244, 63, 94, 0.2) !important; border-color: var(--accent-red) !important; color: #fb7185 !important; }
+        .test-ans { margin-top: 15px; padding: 15px; border-radius: 10px; display: none; font-size: 15px; background: rgba(192, 132, 252, 0.1); border: 1px solid var(--accent-purple); color: #f8fafc; line-height: 1.7; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="header">
-        <h1>BIOLOS | گفتار اول: زیست‌شناسی چیست؟ (متن کامل خط‌به‌خط)</h1>
+        <h1>BIOLOS | گفتار اول: زیست‌شناسی چیست؟ (منبع: جزوه دکتر عمارلو ۱۴۰۴)</h1>
         <a href="app.html"><i class="fa-solid fa-mobile-screen"></i> بازگشت به اپلیکیشن اصلی</a>
     </div>
 
     <div class="nav-tabs">
-        <button class="tab-btn active" onclick="openTab('sec1')">بخش ۱: شگفتی‌های حیات (مونارک)</button>
-        <button class="tab-btn" onclick="openTab('sec2')">بخش ۲: تعریف و قلمرو علم</button>
-        <button class="tab-btn" onclick="openTab('sec3')">بخش ۳: زیست‌شناسی نوین</button>
-        <button class="tab-btn" onclick="openTab('sec4')">بخش ۴: در خدمت انسان</button>
-        <button class="tab-btn" onclick="openTab('sec5')">بخش ۵: سنجش و خودآزمایی</button>
+        <button class="tab-btn active" onclick="openTab('sec1')">۱. پروانه مونارک و آناتومی عصبی</button>
+        <button class="tab-btn" onclick="openTab('sec2')">۲. قلمرو، تعریف و محدوده علم</button>
+        <button class="tab-btn" onclick="openTab('sec3')">۳. زیست‌شناسی نوین (۴ رکن)</button>
+        <button class="tab-btn" onclick="openTab('sec4')">۴. خدمات زیست به انسان</button>
+        <button class="tab-btn" onclick="openTab('sec5')">۵. بانک تست‌های شناسنامه‌دار</button>
     </div>
 
     <div class="content">
         <!-- بخش ۱ -->
         <div id="sec1" class="tab-content active">
-            <div class="section-title">بخش اول: شگفتی‌های حیات (مهاجرت پروانه مونارک)</div>
+            <div class="section-title">۱. شگفتی حیات: بررسی علمی مهاجرت پروانه مونارک</div>
             
             <div class="grid-2">
                 <div>
-                    <div class="book-card">
-                        <span class="book-badge">📦 کادر متن اصلی کتاب درسی</span>
-                        <p>یکی از شگفت‌انگیزترین مهاجرت‌ها متعلق به پروانه‌های مونارک است.</p>
-                        <p>این پروانه‌ها هر سال مسافتی به طول هزاران کیلومتر را از <strong>مکزیک تا جنوب کانادا</strong> و بالعکس می‌پیمایند.</p>
-                        <p>زیست‌شناسان پس از سال‌ها پژوهش به تازگی کشف کرده‌اند که در بدن این پروانه‌ها <strong>یاخته‌های عصبی (نورون‌هایی)</strong> وجود دارد که پروانه با استفاده از آن‌ها، جایگاه خورشید در آسمان و جهت مقصد را تشخیص می‌دهد و به سوی آن پرواز می‌کند.</p>
+                    <div class="note-card">
+                        <span class="note-badge">📌 نکته ۱ (متن اصلی و مفهوم)</span>
+                        <p>پروانه‌های مونارک یکی از شگفت‌انگیزترین مهاجرت‌ها را به نمایش می‌گذارند. جمعیت این پروانه‌ها هر سال هزاران کیلومتر را از <strong>مکزیک تا جنوب کانادا و بالعکس</strong> می‌پیماید[cite: 2].</p>
+                        <p style="margin-top:8px;">زیست‌شناسان پس از سال‌ها پژوهش در بدن پروانه مونارک <strong>یاخته‌های عصبی (نورون‌هایی)</strong> یافته‌اند که پروانه‌ها با استفاده از آن‌ها، جایگاه خورشید در آسمان و جهت مقصد را تشخیص می‌دهند و به سوی آن پرواز می‌کنند[cite: 2].</p>
                     </div>
 
                     <div class="gold-card">
-                        <div class="gold-title"><i class="fa-solid fa-gem"></i> 💎 نکات طلایی کنکور</div>
+                        <div class="gold-title"><i class="fa-solid fa-brain"></i> 💎 نکته ۲ (تحلیل آناتومی سیستم عصبی حشره - دکتر عمارلو)</div>
+                        <p>پروانه مونارک نوعی <strong>حشره</strong> است[cite: 2]. ویژگی‌های آناتومیک سیستم عصبی آن عبارتند از[cite: 2]:</p>
                         <ul>
-                            <li><strong>قید مهم:</strong> پروانه مونارک <strong>منحصراً</strong> با استفاده از «یاخته‌های عصبی» (نورون‌ها) جایگاه خورشید را تشخیص می‌دهد، نه ساختارهای دیگر.</li>
-                            <li>جهت مهاجرت این پروانه از سمت مکزیک (جنوب) به سمت جنوب کانادا (شمال) و بالعکس است.</li>
+                            <li><strong>مغز:</strong> از چند گره به هم جوش‌خورده (نه مجزا) تشکیل شده است[cite: 2].</li>
+                            <li><strong>طناب عصبی:</strong> یک طناب عصبی <strong>شکمی</strong> (نه پشتی) دارد که در طول بدن جانور کشیده شده است[cite: 2].</li>
+                            <li><strong>گره‌ها:</strong> در هر بند از بدن <strong>یک گره عصبی (نه یک جفت گره)</strong> دارد[cite: 2].</li>
+                            <li><strong>عملکرد:</strong> هر گره فعالیت ماهیچه‌های همان بند را تنظیم می‌کند[cite: 2].</li>
                         </ul>
-                    </div>
-
-                    <div class="trap-card">
-                        <div class="trap-title"><i class="fa-solid fa-triangle-exclamation"></i> ⚠️ دام‌های انحرافی طراحان</div>
-                        <p><strong>دام:</strong> پروانه مونارک با استفاده از چشم‌های مرکب خود جایگاه خورشید را برای جهت‌یابی پردازش می‌کند. (❌ <strong>غلط</strong> - کتاب مستقیماً به نقش یاخته‌های عصبی تأکید دارد).</p>
                     </div>
                 </div>
 
-                <!-- دیاگرام اختصاصی وکتور -->
+                <!-- دیاگرام وکتور SVG -->
                 <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" style="width:100%; height:auto; background:#0f172a; border-radius:16px; border:1px solid rgba(56,189,248,0.2);">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" style="width:100%; height:auto; background:#0f172a; border-radius:16px; border:1px solid rgba(56,189,248,0.2);">
                       <defs>
                         <linearGradient id="sunGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stop-color="#f59e0b" />
-                          <stop offset="100%" stop-color="#ef4444" />
+                          <stop offset="0%" stop-color="#f59e0b" /><stop offset="100%" stop-color="#ef4444" />
                         </linearGradient>
                         <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                           <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981" />
                         </marker>
                       </defs>
-                      <text x="400" y="40" fill="#38bdf8" font-family="Vazirmatn, sans-serif" font-size="20" font-weight="800" text-anchor="middle">مکانیسم عصبی جهت‌یابی پروانه مونارک</text>
+                      <text x="400" y="40" fill="#38bdf8" font-family="Vazirmatn, sans-serif" font-size="20" font-weight="800" text-anchor="middle">مکانیسم عصبی و آناتومی سیستم عصبی مونارک</text>
                       <g transform="translate(130, 160)">
                         <circle cx="0" cy="0" r="45" fill="url(#sunGlow)" opacity="0.9" />
-                        <text x="0" y="95" fill="#fbbf24" font-family="Vazirmatn" font-size="16" font-weight="700" text-anchor="middle">۱. جایگاه خورشید در آسمان</text>
+                        <text x="0" y="95" fill="#fbbf24" font-family="Vazirmatn" font-size="15" font-weight="700" text-anchor="middle">۱. جایگاه خورشید در آسمان</text>
                       </g>
                       <path d="M 195 160 L 320 160" stroke="#fbbf24" stroke-width="3" stroke-dasharray="6,6" marker-end="url(#arrow)" />
                       <g transform="translate(400, 160)">
-                        <rect x="-70" y="-60" width="140" height="120" rx="16" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
-                        <text x="0" y="85" fill="#38bdf8" font-family="Vazirmatn" font-size="16" font-weight="800" text-anchor="middle">۲. یاخته‌های عصبی (نورون‌ها)</text>
+                        <rect x="-75" y="-60" width="150" height="120" rx="16" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+                        <text x="0" y="-20" fill="#38bdf8" font-family="Vazirmatn" font-size="16" font-weight="800" text-anchor="middle">۲. نورون‌های مغزی</text>
+                        <text x="0" y="10" fill="#94a3b8" font-family="Vazirmatn" font-size="12" text-anchor="middle">مغز: گره‌های به هم جوش‌خورده</text>
+                        <text x="0" y="30" fill="#94a3b8" font-family="Vazirmatn" font-size="12" text-anchor="middle">طناب عصبی شکمی</text>
                       </g>
                       <path d="M 480 160 L 600 160" stroke="#10b981" stroke-width="4" marker-end="url(#arrow)" />
                       <g transform="translate(670, 160)">
                         <circle cx="0" cy="0" r="45" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="2" />
-                        <text x="0" y="95" fill="#34d399" font-family="Vazirmatn" font-size="16" font-weight="700" text-anchor="middle">۳. تشخیص جهت مقصد</text>
+                        <text x="0" y="95" fill="#34d399" font-family="Vazirmatn" font-size="15" font-weight="700" text-anchor="middle">۳. جهت‌یابی مقصد</text>
                       </g>
+
+                      <rect x="40" y="340" width="720" height="100" rx="12" fill="rgba(244, 63, 94, 0.1)" stroke="#f43f5e" stroke-width="1" />
+                      <text x="400" y="370" fill="#fb7185" font-family="Vazirmatn" font-size="15" font-weight="800" text-anchor="middle">⚠️ دام کنکوری مهم طراحان:</text>
+                      <text x="400" y="395" fill="#cbd5e1" font-family="Vazirmatn" font-size="13" text-anchor="middle">جهت‌یابی منحصراً توسط نورون‌ها انجام می‌شود (نه چشم مرکب)[cite: 2]. طناب عصبی حشره «شکمی» است و در هر بند «یک گره» دارد[cite: 2].</text>
                     </svg>
                 </div>
             </div>
@@ -149,150 +148,136 @@
 
         <!-- بخش ۲ -->
         <div id="sec2" class="tab-content">
-            <div class="section-title">بخش دوم: زیست‌شناسی چیست؟ و محدوده‌های آن</div>
-            
-            <div class="book-card">
-                <span class="book-badge">📦 کادر متن اصلی کتاب درسی</span>
-                <p><strong>تعریف:</strong> زیست‌شناسی شاخه‌ای از علوم تجربی است که به بررسی علمی جانداران و فرایندهای زیستی می‌پردازد.</p>
-                <p>اساس علوم تجربی بر <strong>مشاهده</strong> استوار است.</p>
-                <p>در زیست‌شناسی، <strong>فقط</strong> ساختارها و فرایندهایی را بررسی می‌کنیم که به طور <strong>مستقیم یا غیرمستقیم</strong> قابل مشاهده و اندازه‌گیری‌اند.</p>
-                <p>پژوهشگران علوم تجربی <strong>نمی‌توانند</strong> درباره زشتی و زیبایی، خوبی و بدی، و ارزش‌های هنری و ادبی نظر بدهند.</p>
-                <p>علوم تجربی از پاسخ‌گویی به <strong>برخی</strong> نیازها و حل <strong>برخی</strong> مسائل انسان ناتوان است.</p>
+            <div class="section-title">۲. تعریف، قلمرو و محدودیت‌های علوم تجربی</div>
+
+            <div class="note-card">
+                <span class="note-badge">📌 نکته ۳ (تعریف زیست‌شناسی)</span>
+                <p>زیست‌شناسی شاخه‌ای از علوم تجربی است که به بررسی علمی جانداران و فرایندهای زیستی می‌پردازد[cite: 2].</p>
             </div>
 
-            <div class="grid-2">
-                <div class="gold-card">
-                    <div class="gold-title"><i class="fa-solid fa-gem"></i> 💎 نکات طلایی کنکور</div>
-                    <ul>
-                        <li><strong>قید مهم (فقط):</strong> پژوهشگران علوم تجربی فقط در جستجوی علت‌های پدیده‌های طبیعی و قابل مشاهده هستند.</li>
-                        <li><strong>قید مهم (مستقیم و غیرمستقیم):</strong> مشاهده در زیست‌شناسی محدود به چشم غیرمسلح نیست؛ استفاده از دستگاه‌ها (مثل میکروسکوپ) مشاهده غیرمستقیم است.</li>
-                        <li><strong>قید مهم (برخی):</strong> علوم تجربی توانایی حل «همه» مشکلات بشری را ندارد.</li>
-                    </ul>
-                </div>
+            <div class="note-card">
+                <span class="note-badge">📌 نکته ۴ (محدودیت‌های علم تجربی و پزشکی)</span>
+                <p>امروزه بسیاری از بیماری‌ها مانند بیماری قند و افزایش فشارخون که حدود صد سال پیش به مرگ منجر می‌شدند مهار شده‌اند و به علت روش‌های درمانی و داروهای جدید دیگر مرگ‌آور نیستند[cite: 2].</p>
+                <p style="margin-top:8px;">ممکن است با مشاهده پیشرفت‌ها این تصور در ذهن شکل گیرد که زیست‌شناسی می‌تواند به همه پرسش‌های انسان پاسخ دهد و همه مشکلات را حل کند؛ در حالی که این‌طور نیست[cite: 2]. به طور کلی علم تجربی محدودیتی دارد و <strong>نمی‌تواند به همه پرسش‌های ما پاسخ دهد و از حل برخی مسائل بشری ناتوان است</strong>[cite: 2].</p>
+            </div>
 
-                <div class="trap-card">
-                    <div class="trap-title"><i class="fa-solid fa-triangle-exclamation"></i> ⚠️ دام‌های انحرافی طراحان</div>
-                    <ul>
-                        <li><strong>دام ۱:</strong> زیست‌شناسان با انجام آزمایش‌های علمی ثابت کردند که تابلو مونالیزا اثری زیباست. (❌ <strong>غلط</strong> - بررسی ارزش‌های هنری و زیبایی‌شناسی در محدوده علم تجربی نیست).</li>
-                        <li><strong>دام ۲:</strong> علوم تجربی از پاسخ‌گویی به «همه» نیازهای انسان ناتوان است. (❌ <strong>غلط</strong> - باید از قید «برخی» استفاده شود).</li>
-                    </ul>
-                </div>
+            <div class="gold-card">
+                <div class="gold-title"><i class="fa-solid fa-microscope"></i> 💎 نکته ۵ (مشاهده و مرزهای علم)</div>
+                <ul>
+                    <li>دانشمندان و پژوهشگران علوم تجربی <strong>فقط در جست‌وجوی علت‌های پدیده‌های طبیعی و قابل مشاهده‌اند</strong>[cite: 2].</li>
+                    <li><strong>مشاهده اساس علوم تجربی است</strong>[cite: 2]؛ بنابراین در زیست‌شناسی <strong>فقط ساختارها و یا فرایندهایی را بررسی می‌کنیم که برای ما به طور مستقیم یا غیرمستقیم قابل مشاهده و اندازه‌گیری‌اند</strong>[cite: 2].</li>
+                    <li>پژوهشگران علوم تجربی <strong>نمی‌توانند درباره زشتی و زیبایی، خوبی و بدی، ارزش‌های هنری و ادبی نظر بدهند</strong>[cite: 2].</li>
+                </ul>
             </div>
         </div>
 
         <!-- بخش ۳ -->
         <div id="sec3" class="tab-content">
-            <div class="section-title">بخش سوم: ویژگی‌های زیست‌شناسی نوین</div>
+            <div class="section-title">۳. زیست‌شناسی نوین (ارکان چهارگانه)</div>
 
-            <!-- ۱. کل‌نگری -->
-            <div class="book-card">
-                <span class="book-badge">📦 ۱. کل‌نگری (Holism)</span>
-                <p>پیکر هر یک از جانداران از اجزای بسیاری تشکیل شده است.</p>
-                <p>جانداران نوعی <strong>«سامانه»</strong> هستند. در هر سامانه، اجزا با هم ارتباط دارند.</p>
-                <p>ویژگی‌های سامانه را <strong>نمی‌توان فقط</strong> از طریق مطالعه اجزای سازنده آن توضیح داد.</p>
-                <p>در یک سامانه، ارتباط بین اجزا، مانند خود اجزا در تشکیل ویژگی‌های سامانه مؤثر است.</p>
-                <p>در نتیجه، <strong>کلِ سامانه چیزی بیشتر از مجموع اجزای آن است</strong>.</p>
+            <!-- کل‌نگری -->
+            <div class="note-card">
+                <span class="note-badge">📌 ۱. کل‌نگری (جورچینی / پازلی)</span>
+                <p>جورچینی (پازلی) را در نظر بگیرید که از قطعات بسیار زیادی تشکیل شده است[cite: 2]. ممکن است هر یک از قطعات آن به تنهایی بی‌معنی به نظر آید؛ اما اگر قطعه‌های آن را یکی‌یکی در جای درست کنار هم قرار دهیم، مشاهده می‌کنیم که اجزای جورچین به تدریج نمایی بزرگ، کلی و معنی‌دار پیدا می‌کنند[cite: 2].</p>
+                <p style="margin-top:8px;">پیکر هر یک از جانداران نیز از اجزای بسیاری تشکیل شده است[cite: 2]. هر یک از این اجزا، بخشی از یک سامانه بزرگ را تشکیل می‌دهد[cite: 2]. بنابراین جانداران را نوعی <strong>سامانه</strong> می‌دانند که اجزای آن با هم ارتباط دارند؛ به همین علت <strong>ویژگی‌های سامانه را نمی‌توان فقط از طریق مطالعه اجزای سازنده آن توضیح داد</strong> و ارتباط بین اجزا نیز مانند خود اجزا در تشکیل جاندار مؤثر و <strong>کل سامانه چیزی بیشتر از مجموع اجزای آن است</strong>[cite: 2].</p>
             </div>
 
+            <!-- نگرش بین‌رشته‌ای -->
+            <div class="note-card">
+                <span class="note-badge">📌 ۲. نگرش بین‌رشته‌ای</span>
+                <p>زیست‌شناسان امروزی برای شناخت هر چه بیشتر سامانه‌های زنده از اطلاعات رشته‌های دیگر نیز کمک می‌گیرند؛ مثلاً برای بررسی ژن‌های جانداران علاوه بر اطلاعات زیست‌شناختی از فنون و مفاهیم <strong>مهندسی، علوم رایانه، آمار</strong> و بسیاری رشته‌های دیگر هم استفاده می‌کنند[cite: 2].</p>
+            </div>
+
+            <!-- فناوری‌های نوین -->
             <div class="gold-card">
-                <div class="gold-title"><i class="fa-solid fa-gem"></i> 💎 نکات طلایی کل‌نگری</div>
-                <p>نگرش کل‌نگری، بررسی اجزا را «رد» نمی‌کند، بلکه می‌گوید بررسی اجزا به تنهایی (فقط) کافی نیست.</p>
-                <p><strong>تحلیل شکل کتاب (جورچین/پازل):</strong> قطعات پراکنده پازل به تنهایی معنای خاصی ندارند، اما ارتباط آن‌ها با یکدیگر (کل سامانه) تصویر نهایی را می‌سازد.</p>
+                <div class="gold-title"><i class="fa-solid fa-laptop-code"></i> 💎 ۳. فناوری‌های نوین (IT و مهندسی ژنتیک)</div>
+                <p><strong>الف) فناوری‌های اطلاعاتی و ارتباطی (IT):</strong> امروزه بیشتر از هر زمان دیگر به جمع‌آوری، بایگانی و تحلیل اطلاعات نیازمندیم[cite: 2]. این فناوری‌ها امکان انجام محاسبات را در کوتاه‌ترین زمان ممکن فراهم کرده‌اند[cite: 2].</p>
+                <p style="margin-top:10px;"><strong>ب) مهندسی ژنتیک:</strong> مجموعه‌ای از روش‌ها و فنون آزمایشگاهی است که به منظور تغییر در محتوای دنای جانداران و ایجاد صفت جدید به کار می‌رود[cite: 2]. در مهندسی ژنتیک می‌توان ژن‌های یک جاندار را به بدن جانداران دیگر وارد کرد[cite: 2].</p>
+                <p style="margin-top:6px;">جاندار تغییریافته ژنتیکی را <strong>تراژن</strong> می‌گویند[cite: 2]. مثال کتاب: پژوهشگران با انتقال ژن، **بزهایی تولید کرده‌اند که در شیر آن‌ها پروتئین تار عنکبوت ساخته می‌شود**[cite: 2].</p>
             </div>
 
-            <!-- ۲ و ۳ و ۴ -->
-            <div class="grid-2">
-                <div class="book-card">
-                    <span class="book-badge">📦 ۲. نگرش بین‌رشته‌ای</span>
-                    <p>امروزه برای شناخت هر چه بیشتر سامانه‌های زنده، زیست‌شناسان علاوه بر اطلاعات زیست‌شناختی، از علوم دیگر نیز کمک می‌گیرند.</p>
-                    <p>این علوم شامل: فنون مهندسی، علوم رایانه، آمار، ریاضیات و بسیاری رشته‌های دیگر است.</p>
-                </div>
-
-                <div class="book-card">
-                    <span class="book-badge">📦 ۳. فناوری‌های نوین</span>
-                    <p><strong>فناوری اطلاعات و ارتباطات (IT):</strong> جمع‌آوری و تحلیل حجم عظیمی از اطلاعات در کوتاه‌ترین زمان.</p>
-                    <p><strong>مهندسی ژنتیک:</strong> انتقال ژن‌های یک جاندار به بدن جاندار <strong>گونه‌ای دیگر</strong>. به این جاندار جدید که صفت جدیدی پیدا کرده، <strong>«تراژن»</strong> می‌گویند.</p>
-                </div>
-            </div>
-
+            <!-- اخلاق زیستی -->
             <div class="trap-card">
-                <div class="trap-title"><i class="fa-solid fa-triangle-exclamation"></i> ⚠️ دام انحرافی تراژن</div>
-                <p><strong>دام:</strong> اگر ژن یک انسان به انسان دیگر منتقل شود، فرد گیرنده تراژن محسوب می‌شود. (❌ <strong>غلط</strong> - تراژن منحصراً به معنای دریافت ژن از افراد «گونه‌ای دیگر» است).</p>
-            </div>
-
-            <div class="book-card">
-                <span class="book-badge">📦 ۴. اخلاق زیستی</span>
-                <p>پیشرفت‌های سریع مهندسی ژنتیک می‌تواند زمینه‌ساز سوءاستفاده‌هایی در جامعه شود (مانند تولید سلاح‌های زیستی با عوامل بیماری‌زای مقاوم به دارو).</p>
-                <p><strong>موضوعات اصلی اخلاق زیستی:</strong> محرمانه بودن اطلاعات ژنی افراد، محرمانه بودن اطلاعات پزشکی، و رعایت حقوق جانوران.</p>
+                <div class="trap-title"><i class="fa-solid fa-scale-balanced"></i> ⚠️ ۴. اخلاق زیستی و سوءاستفاده‌های علمی</div>
+                <p>پیشرفت‌های سریع زیست‌شناسی به‌ویژه در مهندسی ژنتیک زمینه سوءاستفاده‌هایی را فراهم کرده است[cite: 2].</p>
+                <ul>
+                    <li><strong>موضوعات اخلاق زیستی:</strong> محرمانه بودن اطلاعات ژنی، اطلاعات پزشکی افراد و رعایت حقوق جانوران[cite: 2].</li>
+                    <li><strong>سوءاستفاده‌ها:</strong> تولید <strong>سلاح‌های زیستی</strong> (مانند عامل بیماری‌زای مقاوم به داروهای رایج یا فرآورده‌های غذایی و دارویی با عواقب زیان‌بار)[cite: 2].</li>
+                </ul>
             </div>
         </div>
 
         <!-- بخش ۴ -->
         <div id="sec4" class="tab-content">
-            <div class="section-title">بخش چهارم: زیست‌شناسی در خدمت انسان</div>
+            <div class="section-title">۴. زیست‌شناسی در خدمت انسان (کاربردهای چهارگانه)</div>
 
             <div class="grid-2">
-                <div class="book-card">
-                    <span class="book-badge">📦 ۱. تأمین غذای سالم و کافی</span>
-                    <p>غذای انسان به طور مستقیم یا غیرمستقیم از گیاهان به دست می‌آید.</p>
-                    <p>شناخت روابط گیاهان و محیط زیست (عوامل زنده و غیرزنده)، از راه‌های افزایش کمیت و کیفیت غذای انسان است.</p>
+                <div class="note-card">
+                    <span class="note-badge">📌 ۱. تأمین غذای سالم و کافی</span>
+                    <p>حدود یک میلیارد نفر در جهان از گرسنگی و سوءتغذیه رنج می‌برند[cite: 2]. غذای انسان مستقیماً یا غیرمستقیم از گیاهان به دست می‌آید[cite: 2]. راه افزایش کمیت و کیفیت غذا، شناخت روابط گیاهان و محیط زیست (عوامل زنده مانند باکتری‌ها، قارچ‌ها، حشرات و غیرزنده مانند دما، رطوبت، نور) است[cite: 2].</p>
                 </div>
 
-                <div class="book-card">
-                    <span class="book-badge">📦 ۲. حفاظت و ترمیم بوم‌سازگان‌ها</span>
-                    <p>هر بوم‌سازگان منابع و سودهایی برای انسان دارد که به آن <strong>«خدمات بوم‌سازگان»</strong> می‌گویند.</p>
-                    <p>مثال ایران: خشک شدن تدریجی دریاچه ارومیه به عنوان بوم‌سازگان آسیب‌دیده.</p>
+                <div class="note-card">
+                    <span class="note-badge">📌 ۲. حفاظت از بوم‌سازگان‌ها و ترمیم آن‌ها</span>
+                    <p><strong>خدمات بوم‌سازگان:</strong> به منابع و سودهایی که هر بوم‌سازگان در بر دارد می‌گویند[cite: 2]. **میزان خدمات هر بوم‌سازگان به میزان تولیدکنندگان آن بستگی دارد**[cite: 2].</p>
+                    <p style="margin-top:6px;"><strong>نکته دریاچه ارومیه:</strong> زیست‌شناسان با اصول علمی بازسازی بوم‌سازگان‌ها راهکارهای احیای آن را ارائه کرده‌اند[cite: 2].</p>
+                    <p style="margin-top:6px;"><strong>قطع درختان:</strong> پیامدها شامل تغییر آب‌وهوا، سیل، کاهش تنوع زیستی و فرسایش خاک است[cite: 2].</p>
                 </div>
-            </div>
-
-            <div class="gold-card">
-                <div class="gold-title"><i class="fa-solid fa-gem"></i> 💎 نکته بسیار مهم خدمات بوم‌سازگان</div>
-                <p>میزان خدمات هر بوم‌سازگان، <strong>مستقیماً و فقط به میزان تولیدکنندگان آن</strong> (مثل گیاهان، جلبک‌ها و سیانوباکتری‌ها) بستگی دارد، نه مصرف‌کنندگان یا تجزیه‌کنندگان.</p>
             </div>
 
             <div class="grid-2">
-                <div class="book-card">
-                    <span class="book-badge">📦 ۳. تأمین انرژی‌های تجدیدپذیر</span>
-                    <p>سوخت‌های زیستی (مانند گازوئیل زیستی) از <strong>جانداران امروزی</strong> (مانند دانه‌های روغنی) به دست می‌آیند و تجدیدپذیرند.</p>
+                <div class="gold-card">
+                    <div class="gold-title"><i class="fa-solid fa-gas-pump"></i> 💎 ۳. تأمین انرژی‌های تجدیدپذیر</div>
+                    <p>سوخت‌های فسیلی (نفت، گاز، بنزین) موجب افزایش CO2، آلودگی هوا و گرمایش زمین می‌شوند[cite: 2].</p>
+                    <p style="margin-top:8px;">زیست‌شناسان می‌توانند به افزایش تولید **سوخت‌های زیستی (مانند گازوئیل زیستی که از دانه‌های روغنی به دست می‌آید)** کمک کنند[cite: 2]. سوخت زیستی برخلاف سوخت فسیلی، **از جانداران امروزی** به دست می‌آید[cite: 2].</p>
                 </div>
 
-                <div class="book-card">
-                    <span class="book-badge">📦 ۴. سلامت و درمان بیماری‌ها</span>
-                    <p>روشی به نام <strong>«پزشکی شخصی»</strong> در حال گسترش است که در آن علاوه بر وضعیت بیمار، اطلاعات <strong>دنای (DNA)</strong> او بررسی شده و داروی اختصاصی طراحی می‌شود.</p>
+                <div class="gold-card">
+                    <div class="gold-title"><i class="fa-solid fa-user-doctor"></i> 💎 ۴. سلامت و درمان (پزشکی شخصی)</div>
+                    <p>در **پزشکی شخصی**، پزشکان برای تشخیص و درمان، **علاوه بر بررسی وضعیت بیمار، اطلاعات دنای (DNA) هر فرد را نیز بررسی می‌کنند** تا روش درمانی و دارویی خاص هر فرد را طراحی کنند[cite: 2].</p>
                 </div>
-            </div>
-
-            <div class="trap-card">
-                <div class="trap-title"><i class="fa-solid fa-triangle-exclamation"></i> ⚠️ دام انحرافی سوخت زیستی</div>
-                <p><strong>دام:</strong> سوخت‌های زیستی از بقایای جانداران باستانی در اعماق زمین استخراج می‌شوند. (❌ <strong>غلط</strong> - این تعریف سوخت فسیلی است؛ سوخت زیستی منحصراً از جانداران امروزی تولید می‌شود).</p>
             </div>
         </div>
 
         <!-- بخش ۵ -->
         <div id="sec5" class="tab-content">
-            <div class="section-title">بخش پنجم: خودآزمایی و تحلیل دام‌های کنکوری</div>
+            <div class="section-title">۵. بانک تست‌های کنکوری عمارلو (شناسنامه‌دار)</div>
 
-            <div class="quiz-card">
-                <div class="quiz-question">سوال ۱: جانداری که ژن یک گونه دیگر را دریافت کرده باشد، چه نامیده می‌شود؟</div>
-                <div class="quiz-options">
-                    <div class="quiz-opt" onclick="checkAnswer(this, 1, false)">۱) جهش‌یافته</div>
-                    <div class="quiz-opt" onclick="checkAnswer(this, 1, true)">۲) تراژن</div>
-                    <div class="quiz-opt" onclick="checkAnswer(this, 1, false)">۳) کلون‌یافته</div>
-                    <div class="quiz-opt" onclick="checkAnswer(this, 1, false)">۴) سامانه مجزا</div>
+            <!-- تست ۱۳ -->
+            <div class="test-card">
+                <div class="test-title"><i class="fa-solid fa-circle-question"></i> تست ۱۳: دانشمندان و پژوهشگران علوم تجربی فقط .........</div>
+                <div class="test-options">
+                    <div class="test-opt" onclick="checkTest(this, 13, true)">۱) در جست‌وجوی علت‌های پدیده‌های طبیعی و قابل مشاهده‌اند.</div>
+                    <div class="test-opt" onclick="checkTest(this, 13, false)">۲) ارتباط بین سطوح مختلف سازمانی سامانه های زنده را بررسی میکنند.</div>
+                    <div class="test-opt" onclick="checkTest(this, 13, false)">۳) از طریق مطالعه اجزای سازنده موجودات سامانه های زنده را بررسی میکنند.</div>
+                    <div class="test-opt" onclick="checkTest(this, 13, false)">۴) با جزء نگری میتوانند تصویری جامع و کلی از جانداران و محیط زیست آنها داشته باشند.</div>
                 </div>
-                <div id="feedback-1" class="quiz-feedback"></div>
+                <div id="test-ans-13" class="test-ans">
+                    <strong>پاسخ صحیح: گزینه ۱</strong><br>
+                    <strong>تحلیل دکتر عمارلو:</strong> در زیست‌شناسی فقط ساختارها و فرایندهایی بررسی می‌شود که به طور مستقیم یا غیرمستقیم قابل مشاهده و اندازه‌گیری اند[cite: 2].
+                </div>
             </div>
 
-            <div class="quiz-card">
-                <div class="quiz-question">سوال ۲: میزان خدمات یک بوم‌سازگان مستقیماً به چه عواملی وابسته است؟</div>
-                <div class="quiz-options">
-                    <div class="quiz-opt" onclick="checkAnswer(this, 2, false)">۱) میزان مصرف‌کنندگان اولیه و ثانویه</div>
-                    <div class="quiz-opt" onclick="checkAnswer(this, 2, true)">۲) میزان تولیدکنندگان بوم‌سازگان</div>
-                    <div class="quiz-opt" onclick="checkAnswer(this, 2, false)">۳) تنوع قارچ‌ها و باکتری‌های تجزیه‌کننده</div>
-                    <div class="quiz-opt" onclick="checkAnswer(this, 2, false)">۴) وسعت جغرافیایی منطقه</div>
+            <!-- تست ۱۴ -->
+            <div class="test-card">
+                <div class="test-title"><i class="fa-solid fa-circle-question"></i> تست ۱۴: چند مورد در ارتباط با زیست‌شناسان صحیح است؟</div>
+                <p style="font-size:15px; margin-bottom:10px; color:#cbd5e1;">
+                    الف) فقط در جست‌وجوی علت‌های پدیده‌های طبیعی و قابل مشاهده‌اند[cite: 2].<br>
+                    ب) نمی‌توانند درباره زشتی و زیبایی، خوبی و بدی، ارزش‌های هنری و ادبی نظر بدهند[cite: 2].<br>
+                    ج) می‌توانند علاوه بر بهبود سوخت‌های زیستی به افزایش تولید آن‌ها نیز کمک کنند[cite: 2].<br>
+                    د) امروزه به این نتیجه رسیده‌اند که بهتر است برای درک سامانه‌های زنده بیشتر کل‌نگری کنند[cite: 2].
+                </p>
+                <div class="test-options">
+                    <div class="test-opt" onclick="checkTest(this, 14, false)">۱) ۱ مورد</div>
+                    <div class="test-opt" onclick="checkTest(this, 14, false)">۲) ۲ مورد</div>
+                    <div class="test-opt" onclick="checkTest(this, 14, false)">۳) ۳ مورد</div>
+                    <div class="test-opt" onclick="checkTest(this, 14, true)">۴) ۴ مورد</div>
                 </div>
-                <div id="feedback-2" class="quiz-feedback"></div>
+                <div id="test-ans-14" class="test-ans">
+                    <strong>پاسخ صحیح: گزینه ۴ (هر ۴ مورد صحیح است)</strong>
+                </div>
             </div>
+
         </div>
 
     </div>
@@ -306,21 +291,19 @@
         event.currentTarget.classList.add('active');
     }
 
-    function checkAnswer(optElement, qNum, isCorrect) {
+    function checkTest(optElement, qNum, isCorrect) {
         const parentGrid = optElement.parentElement;
-        const allOpts = parentGrid.querySelectorAll('.quiz-opt');
-        const feedback = document.getElementById(`feedback-${qNum}`);
+        const allOpts = parentGrid.querySelectorAll('.test-opt');
+        const feedback = document.getElementById(`test-ans-${qNum}`);
         
-        allOpts.forEach(opt => opt.className = 'quiz-opt');
+        allOpts.forEach(opt => opt.className = 'test-opt');
         
         if (isCorrect) {
             optElement.classList.add('correct');
-            feedback.className = 'quiz-feedback show-correct';
-            feedback.innerHTML = '<i class="fa-solid fa-circle-check"></i> پاسخ کاملاً صحیح است! (منطبق بر صریح متن کتاب درسی).';
+            feedback.style.display = 'block';
         } else {
             optElement.classList.add('wrong');
-            feedback.className = 'quiz-feedback show-wrong';
-            feedback.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> پاسخ نادرست است! متن گفتار را با دقت مطالعه کرده و مجدداً تلاش کن.';
+            feedback.style.display = 'block';
         }
     }
 </script>

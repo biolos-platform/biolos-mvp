@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIOLOS | اپلیکیشن تعاملی یادگیری زیست‌شناسی</title>
+    <!-- Vazirmatn Font & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #0b0f19;
+            --bg-card: #1e293b;
+            --bg-sidebar: #0f172a;
+            --accent-blue: #38bdf8;
+            --accent-green: #10b981;
+            --accent-red: #f43f5e;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --border-color: rgba(255,255,255,0.08);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Vazirmatn', sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
+
+        /* ساختار اصلی اپلیکیشن */
+        .app-layout { display: flex; flex: 1; height: 100vh; overflow: hidden; }
+
+        /* سایدبار سمت راست */
+        .app-sidebar { 
+            width: 300px; background: var(--bg-sidebar); border-left: 1px solid var(--border-color); 
+            display: flex; flex-direction: column; flex-shrink: 0; transition: all 0.3s ease;
+        }
+        .sidebar-header { padding: 20px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 12px; }
+        .sidebar-logo { width: 40px; height: 40px; background: linear-gradient(135deg, #0284c7, var(--accent-green)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; color: #fff; }
+        .sidebar-menu { padding: 15px; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+        .menu-item { 
+            padding: 12px 16px; border-radius: 12px; color: var(--text-sub); text-decoration: none; 
+            font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 10px; 
+            transition: all 0.2s; cursor: pointer;
+        }
+        .menu-item:hover, .menu-item.active { background: rgba(56, 189, 248, 0.1); color: var(--accent-blue); }
+
+        /* منطقه محتوای اصلی */
+        .app-main { flex: 1; display: flex; flex-direction: column; overflow-y: auto; background: var(--bg-dark); }
+        .top-navbar { padding: 15px 30px; background: rgba(15, 23, 42, 0.8); border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(10px); }
+        .nav-title { font-size: 20px; font-weight: 800; color: var(--accent-blue); display: flex; align-items: center; gap: 10px; }
+        
+        .main-content { padding: 30px; max-width: 1100px; margin: 0 auto; width: 100%; }
+
+        /* کارت‌ها و بخش‌ها */
+        .card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 25px; margin-bottom: 20px; }
+        .section-title { font-size: 22px; color: var(--accent-blue); font-weight: 800; margin-bottom: 20px; border-right: 4px solid var(--accent-blue); padding-right: 12px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+
+        .trap-card { background: rgba(244, 63, 94, 0.1); border: 1px solid var(--accent-red); border-radius: 12px; padding: 16px; margin-top: 15px; }
+        .trap-title { color: #fb7185; font-weight: 800; font-size: 16px; display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+
+        /* آزمون تعاملی */
+        .quiz-box { background: rgba(15, 23, 42, 0.9); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; margin-bottom: 20px; }
+        .quiz-opt { background: #0f172a; border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 16px; margin-top: 10px; cursor: pointer; transition: all 0.2s; }
+        .quiz-opt:hover { border-color: var(--accent-blue); background: #1e293b; }
+        .quiz-opt.correct { background: rgba(16, 185, 129, 0.2) !important; border-color: var(--accent-green) !important; color: #34d399; }
+        .quiz-opt.wrong { background: rgba(244, 63, 94, 0.2) !important; border-color: var(--accent-red) !important; color: #fb7185; }
+        .feedback { margin-top: 12px; padding: 12px; border-radius: 8px; display: none; font-size: 15px; font-weight: 700; }
+
+        /* تب‌ها */
+        .lesson-tab { display: none; }
+        .lesson-tab.active { display: block; }
+    </style>
+</head>
+<body>
+
+<div class="app-layout">
+    <!-- سایدبار دسترسی سریع -->
+    <div class="app-sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo"><i class="fa-solid fa-dna"></i></div>
+            <div>
+                <h3 style="font-size:16px; font-weight:800;">پلتفرم BIOLOS</h3>
+                <p style="font-size:12px; color:var(--text-sub);">نسخه دانش‌آموز (App)</p>
+            </div>
+        </div>
+        <div class="sidebar-menu">
+            <a href="index.html" class="menu-item"><i class="fa-solid fa-house"></i> صفحه اصلی پورتال</a>
+            <div style="font-size:12px; color:var(--text-sub); font-weight:800; margin:15px 10px 5px 0;">فصل اول: دنیای زنده</div>
+            <div class="menu-item active" onclick="switchLesson('l1')"><i class="fa-solid fa-book-open"></i> گفتار ۱: زیست‌شناسی چیست؟</div>
+            <div class="menu-item" onclick="switchLesson('l2')"><i class="fa-solid fa-globe"></i> گفتار ۲: گسترۀ حیات</div>
+            <div style="font-size:12px; color:var(--text-sub); font-weight:800; margin:15px 10px 5px 0;">ابزارها</div>
+            <a href="concept-wizard.html" class="menu-item"><i class="fa-solid fa-wand-magic-sparkles"></i> ویزارد مفاهیم</a>
+            <a href="teacher-dashboard.html" class="menu-item"><i class="fa-solid fa-chart-line"></i> داشبورد ارزیابی</a>
+        </div>
+    </div>
+
+    <!-- بخش اصلی محتوا -->
+    <div class="app-main">
+        <div class="top-navbar">
+            <div class="nav-title" id="currentTitle">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>گفتار ۱: زیست‌شناسی چیست؟</span>
+            </div>
+            <div>
+                <a href="index.html" style="color:var(--text-sub); text-decoration:none; font-size:14px; font-weight:700;"><i class="fa-solid fa-xmark"></i> خروج</a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- گفتار اول -->
+            <div id="l1" class="lesson-tab active">
+                <div class="section-title">۱. شگفتی‌های حیات: رفتار مهاجرتی پروانه مونارک</div>
+                
+                <div class="grid-2">
+                    <div class="card">
+                        <h3 style="color:var(--accent-blue);"><i class="fa-solid fa-compass"></i> مکانیسم عصبی جهت‌یابی</h3>
+                        <p style="margin-top:10px;">پروانه مونارک سالانه هزاران کیلومتر را از <span style="color:var(--accent-blue); font-weight:700;">مکزیک تا جنوب کانادا</span> طی می‌کند. دانشمندان دریافتند تشخیص جهت خورشید و مسیر منحصراً توسط <span style="color:var(--accent-blue); font-weight:700;">یاخته‌های عصبی (نورون‌ها)</span> انجام می‌شود.</p>
+                        
+                        <div class="trap-card">
+                            <div class="trap-title"><i class="fa-solid fa-triangle-exclamation"></i> دام کنکوری</div>
+                            <p>طراحان ادعا می‌کنند جهت‌یابی توسط چشم‌ها صورت می‌گیرد، در حالی که طبق متن صریح کتاب، منحصراً بر عهده نورون‌هاست!</p>
+                        </div>
+                    </div>
+
+                    <!-- دیاگرام وکتور SVG اختصاصی جهت‌یابی -->
+                    <div class="card" style="padding:15px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" style="width:100%; height:auto; background:#0f172a; border-radius:12px;">
+                            <defs>
+                              <linearGradient id="sunGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#f59e0b" /><stop offset="100%" stop-color="#ef4444" />
+                              </linearGradient>
+                              <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981" />
+                              </marker>
+                            </defs>
+                            <text x="400" y="40" fill="#38bdf8" font-family="Vazirmatn" font-size="20" font-weight="800" text-anchor="middle">مکانیسم عصبی جهت‌یابی مونارک</text>
+                            <g transform="translate(130, 160)">
+                              <circle cx="0" cy="0" r="40" fill="url(#sunGlow)" />
+                              <text x="0" y="80" fill="#fbbf24" font-family="Vazirmatn" font-size="15" font-weight="700" text-anchor="middle">۱. جایگاه خورشید</text>
+                            </g>
+                            <path d="M 195 160 L 320 160" stroke="#fbbf24" stroke-width="3" stroke-dasharray="6,6" marker-end="url(#arrow)" />
+                            <g transform="translate(400, 160)">
+                              <rect x="-60" y="-50" width="120" height="100" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+                              <text x="0" y="75" fill="#38bdf8" font-family="Vazirmatn" font-size="15" font-weight="800" text-anchor="middle">۲. یاخته‌های عصبی</text>
+                            </g>
+                            <path d="M 480 160 L 600 160" stroke="#10b981" stroke-width="4" marker-end="url(#arrow)" />
+                            <g transform="translate(670, 160)">
+                              <circle cx="0" cy="0" r="40" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="2" />
+                              <text x="0" y="80" fill="#34d399" font-family="Vazirmatn" font-size="15" font-weight="700" text-anchor="middle">۳. تشخیص مقصد</text>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- آزمون تعاملی گفتار ۱ -->
+                <div class="section-title" style="margin-top:30px;">آزمون تعاملی گفتار اول</div>
+                <div class="quiz-box">
+                    <p style="font-weight:800; font-size:18px;">سوال: جهت‌یابی پروانه مونارک منحصراً توسط کدام بخش صورت می‌گیرد؟</p>
+                    <div class="quiz-opt" onclick="checkQ(this, false, 'f1')">۱) گیرنده‌های نوری چشم مرکب</div>
+                    <div class="quiz-opt" onclick="checkQ(this, true, 'f1')">۲) یاخته‌های عصبی (نورون‌ها)</div>
+                    <div class="quiz-opt" onclick="checkQ(this, false, 'f1')">۳) حسگرهای روی بال‌ها</div>
+                    <div id="f1" class="feedback"></div>
+                </div>
+            </div>
+
+            <!-- گفتار دوم -->
+            <div id="l2" class="lesson-tab">
+                <div class="section-title">۲. سطوح سازمان‌یابی حیات (از یاخته تا زیست‌کره)</div>
+                
+                <div class="grid-2">
+                    <div class="card">
+                        <h3 style="color:var(--accent-green);"><i class="fa-solid fa-users"></i> سطح ۶: جمعیت</h3>
+                        <p style="margin-top:10px;">افراد <span style="color:var(--accent-green); font-weight:700;">یک گونه</span> که در <span style="color:var(--accent-green); font-weight:700;">زمان و مکان خاصی</span> زندگی می‌کنند.</p>
+                        
+                        <div class="trap-card">
+                            <div class="trap-title"><i class="fa-solid fa-triangle-exclamation"></i> قید مهم جمعیت</div>
+                            <p>اگر جانداران هم‌گونه در دو منطقه جغرافیایی مختلف باشند، تشکیل یک جمعیت را نمی‌دهند!</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 style="color:var(--accent-green);"><i class="fa-solid fa-virus"></i> استثنای تک‌سلولی‌ها</h3>
+                        <p style="margin-top:10px;">جانداران تک‌یاخته‌ای (مثل باکتری‌ها و پارامسی) <span style="color:var(--accent-red); font-weight:700;">فاقد سطوح بافت، اندام و دستگاه</span> هستند.</p>
+                    </div>
+                </div>
+
+                <!-- آزمون تعاملی گفتار ۲ -->
+                <div class="section-title" style="margin-top:30px;">آزمون تعاملی گفتار دوم</div>
+                <div class="quiz-box">
+                    <p style="font-weight:800; font-size:18px;">سوال: کدام سطح، اولین سطحی است که عوامل غیرزنده وارد آن می‌شوند؟</p>
+                    <div class="quiz-opt" onclick="checkQ(this, false, 'f2')">۱) اجتماع زیستی</div>
+                    <div class="quiz-opt" onclick="checkQ(this, true, 'f2')">۲) بوم‌سازگان (اکوسیستم)</div>
+                    <div class="quiz-opt" onclick="checkQ(this, false, 'f2')">۳) جمعیت</div>
+                    <div id="f2" class="feedback"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function switchLesson(lessonId) {
+        document.querySelectorAll('.lesson-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
+        
+        document.getElementById(lessonId).classList.add('active');
+        event.currentTarget.classList.add('active');
+
+        const titleText = lessonId === 'l1' ? 'گفتار ۱: زیست‌شناسی چیست؟' : 'گفتار ۲: گسترۀ حیات';
+        document.getElementById('currentTitle').querySelector('span').innerText = titleText;
+    }
+
+    function checkQ(opt, isCorrect, feedbackId) {
+        const parent = opt.parentElement;
+        parent.querySelectorAll('.quiz-opt').forEach(o => o.className = 'quiz-opt');
+        const fb = document.getElementById(feedbackId);
+
+        if (isCorrect) {
+            opt.classList.add('correct');
+            fb.style.display = 'block';
+            fb.style.background = 'rgba(16, 185, 129, 0.15)';
+            fb.style.color = '#34d399';
+            fb.innerHTML = '<i class="fa-solid fa-check"></i> کاملاً درست است!';
+        } else {
+            opt.classList.add('wrong');
+            fb.style.display = 'block';
+            fb.style.background = 'rgba(244, 63, 94, 0.15)';
+            fb.style.color = '#fb7185';
+            fb.innerHTML = '<i class="fa-solid fa-xmark"></i> پاسخ نادرست است، دوباره تلاش کن!';
+        }
+    }
+</script>
+</body>
+</html>

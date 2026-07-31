@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIOLOS | داشبورد ارزیابی و مدیریت معلم</title>
+    <!-- Vazirmatn Persian Font & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #020617;
+            --bg-card: #0f172a;
+            --bg-card-hover: #1e293b;
+            --accent-purple: #c084fc;
+            --accent-blue: #38bdf8;
+            --accent-emerald: #10b981;
+            --accent-rose: #f43f5e;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            background-color: var(--bg-dark); 
+            color: var(--text-main); 
+            font-family: 'Vazirmatn', sans-serif; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .dashboard-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* هدر داشبورد */
+        .dash-header {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 24px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .teacher-info { display: flex; align-items: center; gap: 16px; }
+        .avatar {
+            width: 54px; height: 54px;
+            background: linear-gradient(135deg, var(--accent-purple), #7c3aed);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; color: #fff;
+        }
+        .header-actions { display: flex; gap: 10px; }
+        .btn-dash {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 10px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 14px; font-weight: 700;
+            display: flex; align-items: center; gap: 8px;
+            transition: all 0.2s;
+        }
+        .btn-dash:hover { background: var(--accent-purple); color: #000; border-color: var(--accent-purple); }
+
+        /* کارت‌های آماری */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .stat-icon {
+            width: 50px; height: 50px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px;
+        }
+        .stat-val { font-size: 24px; font-weight: 900; }
+        .stat-lbl { font-size: 13px; color: var(--text-sub); margin-top: 2px; }
+
+        /* بخش جدول تحلیل و ارزیابی */
+        .dash-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 28px;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 20px; font-weight: 800;
+            color: var(--accent-purple);
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        /* جدول دانش‌آموزان */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+        }
+        .data-table th, .data-table td {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 15px;
+        }
+        .data-table th { color: var(--text-sub); font-weight: 700; background: rgba(255,255,255,0.02); }
+        .data-table tr:hover { background: rgba(255,255,255,0.02); }
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+        .badge-success { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .badge-warning { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+        .progress-bar-bg { width: 100%; height: 8px; background: #1e293b; border-radius: 4px; overflow: hidden; margin-top: 6px; }
+        .progress-bar-fill { height: 100%; background: var(--accent-emerald); border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <!-- هدر داشبورد -->
+    <div class="dash-header">
+        <div class="teacher-info">
+            <div class="avatar"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <div>
+                <h2 style="font-size: 22px; font-weight: 900;">پنل ارزیابی و نظارت معلم</h2>
+                <p style="font-size: 14px; color: var(--text-sub);">تحلیل هوشمند بار شناختی و پاسخ‌دهی کلاس‌های زیست‌شناسی دهم</p>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <a href="index.html" class="btn-dash"><i class="fa-solid fa-house"></i> پورتال اصلی</a>
+            <a href="concept-wizard.html" class="btn-dash"><i class="fa-solid fa-wand-magic-sparkles"></i> ویزارد مفاهیم</a>
+        </div>
+    </div>
+
+    <!-- آمار و ارقام کلاس -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-blue);"><i class="fa-solid fa-users"></i></div>
+            <div>
+                <div class="stat-val">۳۲ نفر</div>
+                <div class="stat-lbl">دانش‌آموزان فعال کلاس</div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald);"><i class="fa-solid fa-circle-check"></i></div>
+            <div>
+                <div class="stat-val">۸۷٪</div>
+                <div class="stat-lbl">میانگین تسلط گفتار ۱ و ۲</div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon" style="background: rgba(244, 63, 94, 0.15); color: var(--accent-rose);"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <div>
+                <div class="stat-val">دام خورشید/نورون</div>
+                <div class="stat-lbl">بیشترین خطای شناختی شناسایی‌شده</div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon" style="background: rgba(192, 132, 252, 0.15); color: var(--accent-purple);"><i class="fa-solid fa-clock"></i></div>
+            <div>
+                <div class="stat-val">۲۴ دقیقه</div>
+                <div class="stat-lbl">میانگین زمان مطالعه تعاملی</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- جدول وضعیت یادگیری گفتارها -->
+    <div class="dash-section">
+        <div class="section-header">
+            <div class="section-title"><i class="fa-solid fa-chart-pie"></i> تحلیل عملکرد در گفتارهای فصل اول</div>
+        </div>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>عنوان گفتار زیست دهم</th>
+                    <th>مفاهیم کلیدی</th>
+                    <th>وضعیت تسلط کلاس</th>
+                    <th>پیشرفت کلاسی</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>گفتار ۱: زیست‌شناسی چیست؟</strong></td>
+                    <td>جهت‌یابی مونارک، نورون‌ها، قلمرو علم، سوخت زیستی</td>
+                    <td><span class="badge badge-success">عالی (۹۱٪)</span></td>
+                    <td style="width: 200px;">
+                        <div style="display:flex; justify-content:space-between; font-size:12px;"><span>۹۱٪</span></div>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 91%;"></div></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>گفتار ۲: گسترۀ حیات</strong></td>
+                    <td>سطوح ۱۰گانه، قید جمعیت، استثنای تک‌سلولی‌ها</td>
+                    <td><span class="badge badge-warning">متوسط (۸۲٪)</span></td>
+                    <td style="width: 200px;">
+                        <div style="display:flex; justify-content:space-between; font-size:12px;"><span>۸۲٪</span></div>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 82%; background: var(--accent-blue);"></div></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- تحلیل دام‌های کنکوری کلاسی -->
+    <div class="dash-section">
+        <div class="section-header">
+            <div class="section-title" style="color: var(--accent-rose);"><i class="fa-solid fa-bug"></i> گزارش دام‌های انحرافی پرتکرار دانش‌آموزان</div>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 16px; border-radius: 12px;">
+                <div style="font-weight: 800; color: #fb7185; font-size: 16px;">۱. اشتباه گرفتن «نقش چشم‌ها» با «یاخته‌های عصبی» در مونارک</div>
+                <div style="font-size: 14px; color: var(--text-sub); margin-top: 6px;">
+                    ۴۱٪ دانش‌آموزان در خودآزمایی بار اول تصور می‌کردند جهت‌یابی مستقیماً توسط چشم‌ها انجام می‌شود. (نیاز به بازمرور در کلاس).
+                </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 16px; border-radius: 12px;">
+                <div style="font-weight: 800; color: #fbbf24; font-size: 16px;">۲. عدم رعایت قیود ۳گانه در سوالات جمعیت</div>
+                <div style="font-size: 14px; color: var(--text-sub); margin-top: 6px;">
+                    ۲۵٪ دانش‌آموزان قید «مکان مشخص» را در تشخیص جمعیت‌های زیستی در نظر نگرفته بودند.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

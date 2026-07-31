@@ -3,131 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پلتفرم جامع آموزشی زیست‌شناسی - BIOLOS</title>
-    <!-- Vazirmatn Persian Font & Font Awesome Icons -->
+    <title>BIOLOS | سامانه هوشمند آموزش زیست‌شناسی</title>
+    <!-- Vazirmatn Persian Font & Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
+        :root {
+            --bg-main: #020617;
+            --bg-card: rgba(15, 23, 42, 0.75);
+            --bg-card-hover: rgba(30, 41, 59, 0.85);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --accent-primary: #38bdf8;
+            --accent-emerald: #10b981;
+            --accent-purple: #c084fc;
+            --accent-rose: #f43f5e;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #020617; color: #f8fafc; display: flex; flex-direction: column; align-items: center; min-height: 100vh; font-family: 'Vazirmatn', sans-serif; padding: 24px 16px; }
-        .portal-container { width: 100%; max-width: 1280px; background: #0f172a; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 20px rgba(56, 189, 248, 0.15); overflow: hidden; position: relative; display: flex; flex-direction: column; }
-        .portal-container::before { content: ''; position: absolute; top: 0; right: 0; left: 0; height: 6px; background: linear-gradient(90deg, #38bdf8, #10b981, #c084fc, #f43f5e); z-index: 10; }
-        .portal-header { padding: 32px 40px; background: linear-gradient(180deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9)); border-bottom: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-        .brand-box { display: flex; align-items: center; gap: 16px; }
-        .brand-logo { width: 56px; height: 56px; background: linear-gradient(135deg, #0284c7, #10b981); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 28px; color: #fff; box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3); }
-        .brand-info h1 { font-size: 28px; font-weight: 900; color: #ffffff; letter-spacing: -0.5px; }
-        .brand-info p { font-size: 15px; color: #94a3b8; margin-top: 2px; }
-        .search-filter-box { display: flex; align-items: center; gap: 12px; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; padding: 8px 16px; width: 320px; }
-        .search-filter-box i { color: #38bdf8; font-size: 18px; }
-        .search-filter-box input { background: transparent; border: none; outline: none; color: #f8fafc; font-family: 'Vazirmatn', sans-serif; font-size: 15px; width: 100%; }
-        .portal-body { padding: 36px 40px; display: flex; flex-direction: column; gap: 32px; }
-        .section-title { font-size: 22px; font-weight: 800; color: #38bdf8; display: flex; align-items: center; gap: 10px; border-right: 4px solid #38bdf8; padding-right: 12px; }
-        .chapters-container { display: flex; flex-direction: column; gap: 24px; }
-        .chapter-card { background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; overflow: hidden; transition: all 0.3s ease; }
-        .chapter-card:hover { border-color: rgba(56, 189, 248, 0.4); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); }
-        .chapter-header { padding: 20px 24px; background: rgba(15, 23, 42, 0.7); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.05); cursor: pointer; }
+        body { 
+            background-color: var(--bg-main); 
+            color: var(--text-main); 
+            font-family: 'Vazirmatn', sans-serif; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 24px 16px;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
+        }
+
+        .portal-container { 
+            width: 100%; 
+            max-width: 1280px; 
+            background: rgba(15, 23, 42, 0.9); 
+            border-radius: 24px; 
+            border: 1px solid var(--border-color); 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.15); 
+            overflow: hidden; 
+            position: relative; 
+            display: flex; 
+            flex-direction: column; 
+            backdrop-filter: blur(12px);
+        }
+
+        .portal-container::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; right: 0; left: 0; 
+            height: 6px; 
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-emerald), var(--accent-purple), var(--accent-rose)); 
+            z-index: 10; 
+        }
+
+        /* هدر اصلی */
+        .portal-header { 
+            padding: 32px 40px; 
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.8)); 
+            border-bottom: 1px solid var(--border-color); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 20px; 
+        }
+
+        .brand-box { display: flex; align-items: center; gap: 18px; }
+        .brand-logo { 
+            width: 60px; height: 60px; 
+            background: linear-gradient(135deg, #0284c7, var(--accent-emerald)); 
+            border-radius: 16px; 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 30px; color: #fff; 
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3); 
+        }
+        .brand-info h1 { font-size: 28px; font-weight: 900; letter-spacing: -0.5px; }
+        .brand-info p { font-size: 15px; color: var(--text-sub); margin-top: 4px; }
+
+        .nav-links { display: flex; gap: 12px; }
+        .btn-nav { 
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid var(--border-color); 
+            color: var(--text-main); 
+            padding: 10px 18px; 
+            border-radius: 12px; 
+            text-decoration: none; 
+            font-size: 14px; 
+            font-weight: 700; 
+            display: flex; align-items: center; gap: 8px; 
+            transition: all 0.3s ease; 
+        }
+        .btn-nav:hover { 
+            background: var(--accent-primary); 
+            color: #000; 
+            border-color: var(--accent-primary); 
+            transform: translateY(-2px); 
+        }
+
+        /* بدنه و فیچرباکس‌ها */
+        .portal-body { padding: 40px; display: flex; flex-direction: column; gap: 36px; }
+
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+        .feature-box { 
+            background: var(--bg-card); 
+            border: 1px solid var(--border-color); 
+            border-radius: 16px; 
+            padding: 24px; 
+            display: flex; flex-direction: column; gap: 12px; 
+            transition: all 0.3s ease; 
+        }
+        .feature-box:hover { transform: translateY(-4px); border-color: rgba(56, 189, 248, 0.4); }
+        .feature-icon { font-size: 28px; color: var(--accent-emerald); }
+        .feature-title { font-size: 18px; font-weight: 800; color: var(--text-main); }
+        .feature-desc { font-size: 14px; color: var(--text-sub); line-height: 1.6; }
+
+        /* بخش فصل‌ها و گفتارها */
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .section-title { font-size: 24px; font-weight: 900; color: var(--accent-primary); display: flex; align-items: center; gap: 12px; border-right: 4px solid var(--accent-primary); padding-right: 14px; }
+
+        .search-box { 
+            display: flex; align-items: center; gap: 12px; 
+            background: rgba(15, 23, 42, 0.8); 
+            border: 1px solid var(--border-color); 
+            border-radius: 12px; padding: 10px 18px; width: 320px; 
+        }
+        .search-box i { color: var(--accent-primary); }
+        .search-box input { background: transparent; border: none; outline: none; color: #fff; font-family: inherit; font-size: 14px; width: 100%; }
+
+        .chapter-card { 
+            background: var(--bg-card); 
+            border: 1px solid var(--border-color); 
+            border-radius: 20px; overflow: hidden; 
+            margin-bottom: 24px; 
+        }
+        .chapter-header { 
+            padding: 22px 28px; 
+            background: rgba(30, 41, 59, 0.5); 
+            display: flex; justify-content: space-between; align-items: center; 
+            border-bottom: 1px solid var(--border-color); 
+        }
         .chapter-title-group { display: flex; align-items: center; gap: 14px; }
-        .chapter-number { background: #0284c7; color: #fff; padding: 6px 14px; border-radius: 10px; font-size: 15px; font-weight: 800; }
-        .chapter-name { font-size: 20px; font-weight: 800; color: #f8fafc; }
-        .lessons-grid { padding: 20px 24px; display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px; }
-        .lesson-card { background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; transition: all 0.2s ease; position: relative; text-decoration: none; color: inherit; }
-        .lesson-card:hover { background: rgba(30, 41, 59, 0.9); border-color: #10b981; transform: translateY(-2px); }
-        .lesson-top-row { display: flex; justify-content: space-between; align-items: center; }
-        .lesson-badge { font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 6px; background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
-        .lesson-title { font-size: 18px; font-weight: 800; color: #ffffff; }
-        .lesson-desc { font-size: 14px; color: #cbd5e1; line-height: 1.5; }
-        .lesson-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 4px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 13px; color: #38bdf8; font-weight: 700; }
-        .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 10px; }
-        .feature-box { background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
-        .feature-icon { font-size: 26px; color: #10b981; }
-        .feature-title { font-size: 16px; font-weight: 800; color: #f8fafc; }
-        .feature-desc { font-size: 13px; color: #94a3b8; line-height: 1.4; }
-        .portal-footer { padding: 20px 40px; background: rgba(15, 23, 42, 0.95); border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #64748b; }
+        .chapter-badge { background: #0284c7; color: #fff; padding: 6px 14px; border-radius: 10px; font-size: 14px; font-weight: 800; }
+        .chapter-name { font-size: 20px; font-weight: 800; }
+
+        .lessons-grid { padding: 28px; display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px; }
+        .lesson-card { 
+            background: rgba(15, 23, 42, 0.8); 
+            border: 1px solid var(--border-color); 
+            border-radius: 16px; padding: 22px; 
+            display: flex; flex-direction: column; gap: 14px; 
+            text-decoration: none; color: inherit; 
+            transition: all 0.3s ease; 
+        }
+        .lesson-card:hover { 
+            border-color: var(--accent-emerald); 
+            transform: translateY(-4px); 
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); 
+        }
+        .lesson-top { display: flex; justify-content: space-between; align-items: center; }
+        .lesson-badge { font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 8px; background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .lesson-title { font-size: 19px; font-weight: 800; color: #fff; }
+        .lesson-desc { font-size: 14px; color: var(--text-sub); line-height: 1.6; }
+        .lesson-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 14px; color: var(--accent-primary); font-weight: 700; }
+
+        /* فوتر */
+        .portal-footer { 
+            padding: 24px 40px; 
+            background: rgba(15, 23, 42, 0.95); 
+            border-top: 1px solid var(--border-color); 
+            display: flex; justify-content: space-between; align-items: center; 
+            flex-wrap: wrap; gap: 15px; font-size: 14px; color: var(--text-sub); 
+        }
     </style>
 </head>
 <body>
 
 <div class="portal-container">
+    <!-- هدر پورتال -->
     <div class="portal-header">
         <div class="brand-box">
             <div class="brand-logo"><i class="fa-solid fa-dna"></i></div>
             <div class="brand-info">
-                <h1>پلتفرم آموزشی و جزوه آنلاین BIOLOS</h1>
-                <p>پایه دهم | بر اساس استاندارد مدیریت بار شناختی و تحلیل کنکور سراسری</p>
+                <h1>پلتفرم جامع زیست‌شناسی BIOLOS</h1>
+                <p>سامانه هوشمند آموزش، مدیریت بار شناختی و تحلیل کنکور سراسری</p>
             </div>
         </div>
 
-        <div class="search-filter-box">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" onkeyup="filterLessons()" placeholder="جستجوی موضوع، گفتار یا فصل...">
+        <div class="nav-links">
+            <a href="app.html" class="btn-nav"><i class="fa-solid fa-layer-group"></i> جزوه تعاملی (App)</a>
+            <a href="concept-wizard.html" class="btn-nav"><i class="fa-solid fa-wand-magic-sparkles"></i> ویزارد مفاهیم</a>
+            <a href="teacher-dashboard.html" class="btn-nav"><i class="fa-solid fa-chalkboard-user"></i> داشبورد معلم</a>
         </div>
     </div>
 
     <div class="portal-body">
+        <!-- ویژگی‌های پلتفرم -->
         <div class="features-grid">
             <div class="feature-box">
                 <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
-                <div class="feature-title">کاهش بار شناختی</div>
-                <div class="feature-desc">دسته‌بندی کارت‌بندی شده برای درک سریع و عمیق مطالب</div>
+                <div class="feature-title">مدیریت بار شناختی</div>
+                <div class="feature-desc">طراحی لایه‌ای و کارت‌بندی شده مطالب برای درک سریع بدون خستگی ذهن دانش‌آموز.</div>
             </div>
             <div class="feature-box">
-                <div class="feature-icon" style="color: #f43f5e;"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                <div class="feature-icon" style="color: var(--accent-rose);"><i class="fa-solid fa-triangle-exclamation"></i></div>
                 <div class="feature-title">ماتریس دام‌های کنکوری</div>
-                <div class="feature-desc">شناسایی خطاهای رایج و گزینه‌های انحرافی طراحان کنکور</div>
+                <div class="feature-desc">شناسایی هوشمند جملات انحرافی و خطاهای شایع طراحان کنکور در تمام فصل‌ها.</div>
             </div>
             <div class="feature-box">
-                <div class="feature-icon" style="color: #38bdf8;"><i class="fa-solid fa-diagram-project"></i></div>
-                <div class="feature-title">تصاویر شماتیک و آموزشی</div>
-                <div class="feature-desc">یادگیری بصری با دیاگرام‌ها و شکل‌های مفهومی کتاب درسی</div>
+                <div class="feature-icon" style="color: var(--accent-primary);"><i class="fa-solid fa-diagram-project"></i></div>
+                <div class="feature-title">دیاگرام‌های وکتور اختصاصی</div>
+                <div class="feature-desc">یادگیری بصری عمیق با نمودارهای SVG وکتور با کیفیت بی‌نهایت و لود فوری.</div>
             </div>
             <div class="feature-box">
-                <div class="feature-icon" style="color: #c084fc;"><i class="fa-solid fa-circle-question"></i></div>
+                <div class="feature-icon" style="color: var(--accent-purple);"><i class="fa-solid fa-list-check"></i></div>
                 <div class="feature-title">خودآزمایی‌های تعاملی</div>
-                <div class="feature-desc">تثبیت فوری آموخته‌ها با پرسش و پاسخ‌های آکاردئونی</div>
+                <div class="feature-desc">تثبیت آنی یادگیری با سوالات چهارگزینه‌ای و بازخورد لحظه‌ای تحلیل پاسخ‌ها.</div>
             </div>
         </div>
 
-        <div class="section-title">
-            <i class="fa-solid fa-layer-group"></i>
-            <span>فصل‌های زیست‌شناسی پایه دهم</span>
-        </div>
+        <!-- لیست گفتارها -->
+        <div>
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>فصل‌های زیست‌شناسی پایه دهم</span>
+                </div>
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" onkeyup="filterLessons()" placeholder="جستجوی موضوع، گفتار یا کلمه کلیدی...">
+                </div>
+            </div>
 
-        <div class="chapters-container">
             <div class="chapter-card">
                 <div class="chapter-header">
                     <div class="chapter-title-group">
-                        <span class="chapter-number">فصل اول</span>
+                        <span class="chapter-badge">فصل اول</span>
                         <span class="chapter-name">دنیای زنده</span>
                     </div>
-                    <i class="fa-solid fa-chevron-down" style="color: #38bdf8;"></i>
+                    <span style="font-size: 14px; color: var(--accent-emerald); font-weight: 700;"><i class="fa-solid fa-circle-check"></i> ۲ گفتار تکمیل شده</span>
                 </div>
 
                 <div class="lessons-grid">
+                    <!-- گفتار ۱ -->
                     <a href="biolos_chapter1_lesson1.html" class="lesson-card">
-                        <div class="lesson-top-row">
+                        <div class="lesson-top">
                             <span class="lesson-badge">گفتار اول</span>
-                            <i class="fa-solid fa-circle-check" style="color: #10b981;"></i>
+                            <i class="fa-solid fa-circle-play" style="color: var(--accent-primary); font-size: 20px;"></i>
                         </div>
                         <div class="lesson-title">زیست‌شناسی چیست؟</div>
-                        <div class="lesson-desc">شگفتی پروانه مونارک، محدوده علم تجربی، کل‌نگری، سوخت‌های زیستی و پزشکی شخصی.</div>
+                        <div class="lesson-desc">شگفتی رفتار مهاجرتی پروانه مونارک، قلمرو و محدودیت‌های علم تجربی، نگرش کل‌نگری، مهندسی ژنتیک و خدمات زیست‌شناسی.</div>
                         <div class="lesson-footer">
-                            <span>ورود به جزوه آنلاین</span>
+                            <span>ورود به جزوه تعاملی</span>
                             <i class="fa-solid fa-arrow-left"></i>
                         </div>
                     </a>
 
+                    <!-- گفتار ۲ -->
                     <a href="biolos_chapter1_lesson2.html" class="lesson-card">
-                        <div class="lesson-top-row">
+                        <div class="lesson-top">
                             <span class="lesson-badge">گفتار دوم</span>
-                            <i class="fa-solid fa-circle-check" style="color: #10b981;"></i>
+                            <i class="fa-solid fa-circle-play" style="color: var(--accent-primary); font-size: 20px;"></i>
                         </div>
                         <div class="lesson-title">گسترۀ حیات</div>
-                        <div class="lesson-desc">سطوح ۱۰ گانه سازمان‌یابی حیات، استثنای تک‌سلولی‌ها، قیود جمعیت و بوم‌سازگان.</div>
+                        <div class="lesson-desc">سطوح ۱۰گانه سازمان‌یابی حیات (از یاخته تا زیست‌کره)، استثنای جانداران تک‌سلولی، قیود ۳گانه جمعیت و مولکول‌های زیستی.</div>
                         <div class="lesson-footer">
-                            <span>ورود به جزوه آنلاین</span>
+                            <span>ورود به جزوه تعاملی</span>
                             <i class="fa-solid fa-arrow-left"></i>
                         </div>
                     </a>
@@ -136,9 +282,10 @@
         </div>
     </div>
 
+    <!-- فوتر -->
     <div class="portal-footer">
         <span>پلتفرم آموزشی BIOLOS | زیست‌شناسی آنلاین دهم</span>
-        <span>طراحی بر اساس متدولوژی اختصاصی تدریس کنکور سراسری</span>
+        <span>طراحی شده بر اساس متدولوژی اختصاصی تدریس کنکور سراسری</span>
     </div>
 </div>
 

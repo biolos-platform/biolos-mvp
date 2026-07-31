@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIOLOS | ویزارد و ویراستار مفاهیم آموزشی</title>
+    <!-- Vazirmatn Persian Font & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #020617;
+            --bg-card: #0f172a;
+            --accent-cyan: #06b6d4;
+            --accent-blue: #38bdf8;
+            --accent-emerald: #10b981;
+            --accent-rose: #f43f5e;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            background-color: var(--bg-dark); 
+            color: var(--text-main); 
+            font-family: 'Vazirmatn', sans-serif; 
+            min-height: 100vh; 
+            padding: 24px;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        .wizard-container {
+            width: 100%; max-width: 1100px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            display: flex; flex-direction: column; gap: 28px;
+        }
+
+        .wizard-header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px; flex-wrap: wrap; gap: 15px;
+        }
+        .header-title { display: flex; align-items: center; gap: 14px; }
+        .wizard-icon {
+            width: 50px; height: 50px;
+            background: linear-gradient(135deg, var(--accent-cyan), #0284c7);
+            border-radius: 14px; display: flex; align-items: center; justify-content: center;
+            font-size: 24px; color: #fff;
+        }
+
+        .btn-nav {
+            background: rgba(255,255,255,0.05); border: 1px solid var(--border-color);
+            color: var(--text-main); padding: 10px 18px; border-radius: 12px;
+            text-decoration: none; font-size: 14px; font-weight: 700;
+            display: flex; align-items: center; gap: 8px; transition: all 0.2s;
+        }
+        .btn-nav:hover { background: var(--accent-cyan); color: #000; }
+
+        /* فرم ساخت مفهوم */
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 768px) { .form-grid { grid-template-columns: 1fr; } }
+
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-label { font-size: 14px; font-weight: 700; color: var(--accent-blue); }
+        .form-input, .form-select, .form-textarea {
+            background: #1e293b; border: 1px solid var(--border-color);
+            border-radius: 12px; padding: 12px 16px; color: #fff;
+            font-family: inherit; font-size: 15px; outline: none; transition: all 0.2s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent-cyan); }
+
+        /* پیش‌نمایش آنی کارت */
+        .preview-box {
+            background: rgba(15, 23, 42, 0.8);
+            border: 2px dashed rgba(56, 189, 248, 0.3);
+            border-radius: 16px; padding: 24px;
+            display: flex; flex-direction: column; gap: 12px;
+        }
+        .preview-title { font-size: 14px; color: var(--text-sub); font-weight: 700; margin-bottom: 5px; }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--accent-emerald), #059669);
+            color: #fff; border: none; padding: 14px 28px; border-radius: 12px;
+            font-family: inherit; font-size: 16px; font-weight: 800; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            transition: all 0.2s;
+        }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3); }
+    </style>
+</head>
+<body>
+
+<div class="wizard-container">
+    <!-- هدر ویزارد -->
+    <div class="wizard-header">
+        <div class="header-title">
+            <div class="wizard-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <div>
+                <h2 style="font-size: 22px; font-weight: 900;">ویزارد طراحی مفاهیم زیست‌شناسی</h2>
+                <p style="font-size: 14px; color: var(--text-sub);">تولید استاندارد کارت‌های آموزشی، نکات طلایی و دام‌های کنکوری BIOLOS</p>
+            </div>
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+            <a href="index.html" class="btn-nav"><i class="fa-solid fa-house"></i> پورتال اصلی</a>
+            <a href="teacher-dashboard.html" class="btn-nav"><i class="fa-solid fa-chart-line"></i> داشبورد معلم</a>
+        </div>
+    </div>
+
+    <!-- ورودی‌های ساخت نکته/گفتار جدید -->
+    <div class="form-grid">
+        <div class="form-group">
+            <label class="form-label">انتخاب گفتار زیست دهم</label>
+            <select class="form-select" id="chapterSelect" onchange="updatePreview()">
+                <option value="گفتار ۱: زیست‌شناسی چیست؟">فصل ۱ - گفتار ۱: زیست‌شناسی چیست؟</option>
+                <option value="گفتار ۲: گسترۀ حیات">فصل ۱ - گفتار ۲: گسترۀ حیات</option>
+                <option value="فصل‌های بعدی">فصل‌های بعدی (در حال ساخت)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">عنوان مفهوم / نکته آموزشی</label>
+            <input type="text" class="form-input" id="conceptTitle" value="نکته طلایی نورون‌های مونارک" onkeyup="updatePreview()">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">توضیح علمی (منطبق بر متن کتاب درسی)</label>
+        <textarea class="form-textarea" id="conceptDesc" rows="3" onkeyup="updatePreview()">تشخیص جهت پرواز و موقعیت خورشید در جریان مهاجرت پروانه مونارک منحصراً بر عهده نورون‌های مغزی است.</textarea>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">دام انحرافی طراح کنکور (Trap Alert)</label>
+        <input type="text" class="form-input" id="conceptTrap" value="ادعای انجام جهت‌یابی مستقیماً توسط چشم‌های مرکب جاندار!" onkeyup="updatePreview()">
+    </div>
+
+    <!-- پیش‌نمایش زنده کارت ساخته شده -->
+    <div>
+        <div class="preview-title"><i class="fa-solid fa-eye"></i> پیش‌نمایش زنده کارت تعاملی در اپلیکیشن:</div>
+        <div class="preview-box">
+            <div style="font-size: 13px; color: var(--accent-cyan); font-weight: 800;" id="prevChapter">فصل ۱ - گفتار ۱</div>
+            <div style="font-size: 18px; font-weight: 800; color: #fff;" id="prevTitle">نکته طلایی نورون‌های مونارک</div>
+            <div style="font-size: 15px; color: var(--text-sub); line-height: 1.6;" id="prevDesc">تشخیص جهت پرواز و موقعیت خورشید در جریان مهاجرت پروانه مونارک منحصراً بر عهده نورون‌های مغزی است.</div>
+            
+            <div style="background: rgba(244, 63, 94, 0.1); border: 1px solid var(--accent-rose); padding: 12px; border-radius: 10px; margin-top: 5px;">
+                <span style="color: #fb7185; font-weight: 800; font-size: 14px;"><i class="fa-solid fa-triangle-exclamation"></i> دام کنکوری:</span>
+                <span style="font-size: 14px; color: #f8fafc;" id="prevTrap">ادعای انجام جهت‌یابی مستقیماً توسط چشم‌های مرکب جاندار!</span>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn-submit" onclick="alert('کارت مفهوم زیست‌شناسی با موفقیت ثبت شد!')">
+        <i class="fa-solid fa-floppy-disk"></i> ثبت و ساخت کد HTML کارت
+    </button>
+</div>
+
+<script>
+    function updatePreview() {
+        document.getElementById('prevChapter').innerText = document.getElementById('chapterSelect').value;
+        document.getElementById('prevTitle').innerText = document.getElementById('conceptTitle').value || 'عنوان مفهوم';
+        document.getElementById('prevDesc').innerText = document.getElementById('conceptDesc').value || 'توضیحات علمی...';
+        document.getElementById('prevTrap').innerText = document.getElementById('conceptTrap').value || 'دام کنکوری...';
+    }
+</script>
+</body>
+</html>
